@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karelia Translate documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Karelia Translate, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/karelia-translate/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-8b71698148.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karelia Translate documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Karelia Translate, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/karelia-translate/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/karelia-translate/"><img class="logo" src="/karelia-labs/assets/products/karelia-translate.svg" alt="" width="144" height="144"><span class="t">Karelia Translate</span></a><span class="pband-sub">AI translation of posts for Flarum 2 forums</span></div></div><nav class="tabs" aria-label="Karelia Translate"><div class="wrap"><ul><li><a href="/karelia-labs/products/karelia-translate/">Overview</a></li><li><a href="/karelia-labs/products/karelia-translate/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/karelia-translate/support/">Support</a></li><li><a href="/karelia-labs/products/karelia-translate/security/">Security</a></li><li><a href="/karelia-labs/products/karelia-translate/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/karelia-translate/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Karelia Translate.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install-in-three-steps">Install in three steps</a></li><li><a href="#set-it-up-in-two-minutes">Set it up in two minutes</a></li><li><a href="#how-readers-use-it">How readers use it</a></li><li><a href="#choose-a-translation-service">Choose a translation service</a></li><li><a href="#settings">Settings</a></li><li><a href="#saved-translations-and-cost">Saved translations and cost</a></li><li><a href="#language-detection">Language detection</a></li><li><a href="#what-is-sent-where">What is sent where</a></li><li><a href="#when-something-goes-wrong">When something goes wrong</a></li><li><a href="#remove-the-extension">Remove the extension</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Flarum 2.0 or later, on PHP 8.3 or later.</li>
+<li>Shell access to run Composer and <code>php flarum</code> on the server.</li>
+<li>An API key for one of the translation services, or a local model. See <a href="#choose-a-translation-service">Choose a translation service</a>.</li>
+</ul>
+<h2 id="install-in-three-steps">Install in three steps</h2>
+<ol>
+<li>Subscribe on Floxum and follow the instructions on your Floxum subscriptions page to give Composer access to Floxum&#39;s package repository.</li>
+<li>On the server, in the folder where Flarum is installed, run:</li>
+</ol>
+<pre tabindex="0"><code class="language-bash">composer require karelialabs/flarum-translate
+php flarum migrate
+php flarum cache:clear
+</code></pre>
+<ol start="3">
+<li>In the admin panel, open <strong>Extensions</strong>, enable <strong>Karelia Translate</strong> and open its settings.</li>
+</ol>
+<h2 id="set-it-up-in-two-minutes">Set it up in two minutes</h2>
+<ol>
+<li>Under <strong>Translation service</strong>, choose a service. Only the fields that service needs are shown.</li>
+<li>Paste the API key and, for an OpenAI-compatible service, the address and the model name.</li>
+<li>Choose <strong>Save Changes</strong>, then <strong>Test the connection</strong>. It translates one sentence with your saved settings and shows the result, the time it took and the service that answered.</li>
+<li>Under <strong>Permissions</strong>, check who may use <strong>Translate posts</strong>. Members have it by default. Guests do not, so bots cannot spend your budget.</li>
+<li>Optional: find the language of posts written before the extension was installed. This runs on your server and costs nothing:</li>
+</ol>
+<pre tabindex="0"><code class="language-bash">php flarum karelia-translate:detect
+</code></pre>
+<p>Add <code>--all</code> to detect the language of every post again, for example after a large import.</p>
+<h2 id="how-readers-use-it">How readers use it</h2>
+<p>Under every post written in another language than the reader&#39;s, a small bar shows the language of the post and a link such as <strong>Translate to English</strong>. One click shows the translation under the original. <strong>Hide translation</strong> folds it away, and <strong>Show translation</strong> brings it back without asking the service again.</p>
+<p>The first post of a discussion is translated together with the discussion title. Every translation ends with a credit line, for example &quot;Translated from Portuguese by DeepL&quot;. Translations from OpenAI-compatible services are credited to &quot;AI&quot;, because model names mean little to readers.</p>
+<p>The link is not shown:</p>
+<ul>
+<li>on posts that are already in the reader&#39;s language;</li>
+<li>on posts whose language could not be detected, unless <strong>Offer translation when the language is unknown</strong> is on;</li>
+<li>to readers who do not have the <strong>Translate posts</strong> permission;</li>
+<li>while a post is being edited.</li>
+</ul>
+<h2 id="choose-a-translation-service">Choose a translation service</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Service</th><th scope="col">Good for</th><th scope="col">What you need</th></tr></thead><tbody><tr><td data-label="Service">DeepL</td><td data-label="Good for">The best quality for European languages. DeepL API Free includes 500,000 characters a month</td><td data-label="What you need">A DeepL API key. Free keys end with <code>:fx</code> and work too</td></tr><tr><td data-label="Service">Google Cloud Translation</td><td data-label="Good for">The widest list of languages</td><td data-label="What you need">A Google Cloud API key with the Cloud Translation API enabled</td></tr><tr><td data-label="Service">Anthropic Claude</td><td data-label="Good for">Natural translations of slang and informal posts</td><td data-label="What you need">An Anthropic API key. The model is set under <strong>Claude model</strong></td></tr><tr><td data-label="Service">OpenAI-compatible</td><td data-label="Good for">OpenAI, Mistral, Gemini, DeepSeek, OpenRouter, and local models in LM Studio, Ollama or llama.cpp</td><td data-label="What you need">The address, the model name and, except for local models, a key</td></tr><tr><td data-label="Service">LibreTranslate</td><td data-label="Good for">Free translation on your own server</td><td data-label="What you need">The address of your LibreTranslate server, and a key if it requires one</td></tr></tbody></table></div>
+<h3 id="addresses-for-openai-compatible-services">Addresses for OpenAI-compatible services</h3>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Service</th><th scope="col">Address</th></tr></thead><tbody><tr><td data-label="Service">OpenAI</td><td data-label="Address"><code>https://api.openai.com/v1</code></td></tr><tr><td data-label="Service">Mistral</td><td data-label="Address"><code>https://api.mistral.ai/v1</code></td></tr><tr><td data-label="Service">Gemini</td><td data-label="Address"><code>https://generativelanguage.googleapis.com/v1beta/openai</code></td></tr><tr><td data-label="Service">OpenRouter</td><td data-label="Address"><code>https://openrouter.ai/api/v1</code></td></tr><tr><td data-label="Service">LM Studio on the same server</td><td data-label="Address"><code>http://127.0.0.1:1234/v1</code></td></tr><tr><td data-label="Service">Ollama on the same server</td><td data-label="Address"><code>http://127.0.0.1:11434/v1</code></td></tr></tbody></table></div>
+<p>Use the model name exactly as the service writes it. Translation does not need the largest model; a small, fast one is usually enough. For local reasoning models (for example Gemma or Qwen in LM Studio), turn on <strong>Turn off model thinking</strong> if translations come back empty.</p>
+<h3 id="libretranslate-with-docker">LibreTranslate with Docker</h3>
+<p>LibreTranslate is open source and keeps every word on your server. Load only the languages your forum needs, so it starts faster and uses less memory:</p>
+<pre tabindex="0"><code class="language-bash">docker run -d --name libretranslate -p 127.0.0.1:5000:5000 \
+  -e LT_LOAD_ONLY=en,sv,de \
+  -v libretranslate-models:/home/libretranslate/.local \
+  libretranslate/libretranslate
+</code></pre>
+<p>Then set <strong>LibreTranslate address</strong> to <code>http://127.0.0.1:5000</code>. The first start downloads the language models and takes a few minutes. Quality is below DeepL and the large AI models, but it costs nothing.</p>
+<h3 id="claude-models">Claude models</h3>
+<p>The default model is <code>claude-opus-5-5</code>. <code>claude-haiku-5-5</code> costs a fraction of that and is usually good enough for translation.</p>
+<h2 id="settings">Settings</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Setting</th><th scope="col">What it does</th></tr></thead><tbody><tr><td data-label="Setting">Translation service</td><td data-label="What it does">The service that translates posts. Only its own fields are shown</td></tr><tr><td data-label="Setting">Translate into</td><td data-label="What it does"><strong>The reader&#39;s forum language</strong> (default) or <strong>The reader&#39;s browser language</strong>. With only one language pack installed, the browser language lets readers translate into their own language anyway</td></tr><tr><td data-label="Setting">Character limit per month</td><td data-label="What it does">Translation stops for the rest of the month when the limit is reached. Default 500,000. 0 means no limit</td></tr><tr><td data-label="Setting">New translations per reader per hour</td><td data-label="What it does">Default 30. Translations that are already saved do not count, and admins have no limit. 0 means no limit</td></tr><tr><td data-label="Setting">Offer translation when the language is unknown</td><td data-label="What it does">Very short posts often have no detected language. Turn on to show the link on them too</td></tr><tr><td data-label="Setting">Never translate</td><td data-label="What it does">One word or name per line, for example your forum&#39;s name or product names. They are sent as placeholders and come back exactly as written</td></tr></tbody></table></div>
+<p>The <strong>Status</strong> box at the bottom shows how many characters have been used this month, and holds the connection test.</p>
+<h3 id="keys-in-environment-variables">Keys in environment variables</h3>
+<p>An environment variable wins over the setting, so keys can stay out of the database:</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Service</th><th scope="col">Variable</th></tr></thead><tbody><tr><td data-label="Service">DeepL</td><td data-label="Variable"><code>KARELIA_TRANSLATE_DEEPL_KEY</code></td></tr><tr><td data-label="Service">Google</td><td data-label="Variable"><code>KARELIA_TRANSLATE_GOOGLE_KEY</code></td></tr><tr><td data-label="Service">OpenAI-compatible</td><td data-label="Variable"><code>KARELIA_TRANSLATE_OPENAI_KEY</code></td></tr><tr><td data-label="Service">Anthropic</td><td data-label="Variable"><code>KARELIA_TRANSLATE_ANTHROPIC_KEY</code></td></tr><tr><td data-label="Service">LibreTranslate</td><td data-label="Variable"><code>KARELIA_TRANSLATE_LIBRETRANSLATE_KEY</code></td></tr></tbody></table></div>
+<h2 id="saved-translations-and-cost">Saved translations and cost</h2>
+<p>Every translation is saved per post, target language, service and version of the post. The next reader who asks for the same post in the same language gets the saved translation at once, and nothing is sent to the service. Editing a post makes a new translation the next time someone asks. After a change of service or model, new requests are translated by the new one. Earlier translations stay saved and are used again if you switch back.</p>
+<p>Only new translations count towards the monthly limit and the hourly limit. The cost therefore follows how much your members read across languages, not how much they write.</p>
+<h2 id="language-detection">Language detection</h2>
+<p>The language of a post is detected on your server when the post is saved, without sending it anywhere. Detection recognises 29 languages: English, Swedish, Danish, Norwegian, German, Dutch, French, Spanish, Italian, Portuguese, Finnish, Polish, Czech, Turkish, Romanian, Hungarian, Indonesian, Russian, Ukrainian, Belarusian, Greek, Arabic, Persian, Hebrew, Hindi, Thai, Chinese, Japanese and Korean.</p>
+<p>Code, quotes, web addresses and @mentions are ignored when the language is detected. Posts that are too short to tell get no language; turn on <strong>Offer translation when the language is unknown</strong> to show the link on them anyway. Translation itself covers every language your service supports.</p>
+<h2 id="what-is-sent-where">What is sent where</h2>
+<ul>
+<li>Only the text of the post, and the title of the first post, is sent to the service you chose, and only when a reader asks for a translation.</li>
+<li>Code blocks, inline code, web addresses, @mentions and your &quot;never translate&quot; words are replaced by placeholders before sending. The visible text of a link is translated; its address is not sent.</li>
+<li>Translations are stored in your own database, in the table <code>karelialabs_translations</code>, and deleted with their post.</li>
+<li>Karelia Labs receives nothing: no posts, no keys, no usage data.</li>
+</ul>
+<h2 id="when-something-goes-wrong">When something goes wrong</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Readers see</th><th scope="col">What it means</th><th scope="col">What to do</th></tr></thead><tbody><tr><td data-label="Readers see">The translation limit for this month has been reached</td><td data-label="What it means">The monthly character limit is used up</td><td data-label="What to do">Raise <strong>Character limit per month</strong>, or wait for the next month</td></tr><tr><td data-label="Readers see">You have translated a lot in the last hour</td><td data-label="What it means">The reader reached the hourly limit</td><td data-label="What to do">Nothing, or raise <strong>New translations per reader per hour</strong></td></tr><tr><td data-label="Readers see">The translation service did not answer</td><td data-label="What it means">The service returned an error or did not answer in time</td><td data-label="What to do">Run <strong>Test the connection</strong> in the settings. It shows the service&#39;s own message</td></tr><tr><td data-label="Readers see">Your language could not be recognised</td><td data-label="What it means">The reader&#39;s language could not be worked out</td><td data-label="What to do">Check <strong>Translate into</strong>, and that the reader&#39;s language pack or browser language is set</td></tr></tbody></table></div>
+<p><strong>Test the connection</strong> fails with an authentication error: check the key, and for DeepL that a free key (ending in <code>:fx</code>) is used as is. For an OpenAI-compatible service, check that the address ends in <code>/v1</code> (or the address the service documents) and that the model name is exact.</p>
+<p>A local model returns nothing: turn on <strong>Turn off model thinking</strong>, and check that the model is loaded in LM Studio or Ollama.</p>
+<h2 id="remove-the-extension">Remove the extension</h2>
+<p>Disabling the extension keeps its data. To remove the saved translations and the language column as well, run this before you remove the package:</p>
+<pre tabindex="0"><code class="language-bash">php flarum migrate:reset --extension=karelialabs-translate
+composer remove karelialabs/flarum-translate
+</code></pre>
+<p>Settings, including an API key stored in the database, stay in Flarum&#39;s settings table until you clear them.</p>
+<h2 id="need-help">Need help?</h2>
+<p>Write to <a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a> or use the support portal. Include your Flarum version (<code>php flarum info</code>) and the message from <strong>Test the connection</strong>, if there is one. Never send your API key.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install-in-three-steps">Install in three steps</a></li><li><a href="#set-it-up-in-two-minutes">Set it up in two minutes</a></li><li><a href="#how-readers-use-it">How readers use it</a></li><li><a href="#choose-a-translation-service">Choose a translation service</a></li><li><a href="#settings">Settings</a></li><li><a href="#saved-translations-and-cost">Saved translations and cost</a></li><li><a href="#language-detection">Language detection</a></li><li><a href="#what-is-sent-where">What is sent where</a></li><li><a href="#when-something-goes-wrong">When something goes wrong</a></li><li><a href="#remove-the-extension">Remove the extension</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence, Jira and Flarum, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li><li><a href="/karelia-labs/products/karelia-translate/">Karelia Translate</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Flarum and the other names on this site belong to their owners. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>

@@ -146,10 +146,10 @@ a:hover { text-decoration-thickness: 2px; }
 .trust p { max-width: 34rem; }
 
 .kv { margin: 0; display: grid; gap: 0; }
-.kv > div { display: grid; gap: .1rem 1.5rem; align-items: baseline; padding: .85rem 0; border-top: 1px solid var(--line); }
+.kv > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: .1rem 1.5rem; align-items: baseline; padding: .85rem 0; border-top: 1px solid var(--line); }
 .kv > div:first-child { border-top: 0; padding-top: 0; }
 .kv dt { color: var(--text-muted); font-size: .92rem; font-weight: 600; }
-.kv dd { margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
 @media (min-width: 40rem) { .kv > div { grid-template-columns: 11rem minmax(0, 1fr); } }
 
 .cta-inner { display: grid; gap: .25rem; }
