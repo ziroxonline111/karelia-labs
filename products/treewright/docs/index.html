@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treewright documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Treewright, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/treewright/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-2d6fb99f06.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Treewright documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Treewright, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/treewright/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/treewright/"><img class="logo" src="/karelia-labs/assets/products/treewright.svg" alt="" width="144" height="144"><span class="t">Treewright</span></a><span class="pband-sub">Page tree copier and templates for Confluence</span></div></div><nav class="tabs" aria-label="Treewright"><div class="wrap"><ul><li><a href="/karelia-labs/products/treewright/">Overview</a></li><li><a href="/karelia-labs/products/treewright/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/treewright/support/">Support</a></li><li><a href="/karelia-labs/products/treewright/security/">Security</a></li><li><a href="/karelia-labs/products/treewright/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/treewright/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Treewright.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#copy-a-page-tree-in-five-steps">Copy a page tree in five steps</a></li><li><a href="#copy-options">Copy options</a></li><li><a href="#the-preview">The preview</a></li><li><a href="#links-in-the-copy">Links in the copy</a></li><li><a href="#jobs-and-reports">Jobs and reports</a></li><li><a href="#templates-with-variables">Templates with variables</a></li><li><a href="#edit-restrictions-that-follow-the-tree">Edit restrictions that follow the tree</a></li><li><a href="#permissions-licensing-and-data">Permissions, licensing and data</a></li><li><a href="#limits">Limits</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Confluence Cloud.</li>
+<li>Treewright installed on your site. Installing an app needs a Confluence site administrator.</li>
+<li>Permission to view the pages you copy and to create pages in the destination space.</li>
+</ul>
+<p>Treewright acts as you. It can read and change only what you can read and change in Confluence, so it does not give anyone access to a page they could not already reach. The one exception is the optional restriction rule, described below.</p>
+<p>The first time you use Treewright, Atlassian shows a consent screen. Approve it once. It lets the app act on your behalf.</p>
+<h2 id="copy-a-page-tree-in-five-steps">Copy a page tree in five steps</h2>
+<ol>
+<li>Open the page at the top of the tree you want to copy.</li>
+<li>Open the ••• menu of the page and choose <strong>Copy page tree…</strong>.</li>
+<li>Under <strong>Where should the copy go?</strong>, choose a <strong>Destination space</strong>. Optionally choose a page under <strong>Under this page</strong>; leave it empty to copy to the root of the space.</li>
+<li>Choose what comes along and how the new titles are made (both explained below), then choose <strong>Preview</strong>.</li>
+<li>Read the preview. If it looks right, choose <strong>Start copying</strong>.</li>
+</ol>
+<p>You can close the window as soon as the copy has started. The job continues in the background. Open <strong>Apps</strong>, then <strong>Treewright</strong>, then <strong>Jobs</strong> to follow it and to read the report.</p>
+<h2 id="copy-options">Copy options</h2>
+<h3 id="destination">Destination</h3>
+<p>Choose the <strong>Destination space</strong>, then search for the page the copy should go under (type at least two letters). The copy becomes a child of that page. If you choose the same space as the original, use a prefix or a different parent so the titles differ. A destination inside the tree you are copying is refused in the preview.</p>
+<h3 id="what-should-be-copied">What should be copied</h3>
+<p>Each of these is a checkbox. All are ticked at first except <strong>Page restrictions</strong>: tick it if the copies should get the restrictions of the originals.</p>
+<ul>
+<li><strong>Attachments</strong></li>
+<li><strong>Labels</strong></li>
+<li><strong>Page properties</strong> (page width and other settings)</li>
+<li><strong>Page restrictions</strong>, applied last so that links can still be fixed</li>
+<li><strong>Update links so they point to the copies</strong></li>
+</ul>
+<p>Restrictions are applied after the links have been rewritten, so a restriction can never lock Treewright out of a page it still has to fix.</p>
+<h3 id="page-titles">Page titles</h3>
+<p>Choose <strong>Keep the titles</strong>, <strong>Add a prefix</strong> or <strong>Find and replace</strong>. Find and replace works on literal text, not on patterns.</p>
+<p>Then choose what happens <strong>If a title already exists in the destination space</strong>: add a number, for example &quot;Plan (2)&quot;, or stop and let you change the settings.</p>
+<p>There is also a checkbox to copy page by page. It is slower but gives exact control. The preview tells you when page by page copying is used anyway.</p>
+<h2 id="the-preview">The preview</h2>
+<p>Nothing is created until you start the copy. The preview shows:</p>
+<ul>
+<li>the number of pages and how deep the tree is</li>
+<li>the title of every copy next to the original page (the first 200 pages for a big tree, with a note), and which titles were renamed because they already exist</li>
+<li>the copy method that will be used, and why</li>
+<li>warnings for content that cannot be copied (whiteboards, databases, folders, smart links used as pages, archived pages)</li>
+<li>warnings for very large trees, and an error if the destination is inside the source tree</li>
+<li>a note that pages you are not allowed to see are not listed</li>
+</ul>
+<p>If you are not allowed to create pages in the destination, if the source or destination cannot be read, or if the destination is inside the tree you are copying, the preview says so and the copy cannot start.</p>
+<h3 id="two-copy-methods">Two copy methods</h3>
+<p>Treewright chooses the method for you and tells you which one it picked.</p>
+<ul>
+<li><strong>Confluence copies the whole tree on its servers.</strong> This is the fast route. It is used when the destination is a page, there are no title conflicts, nothing in the tree is uncopyable and the title rule can be expressed in Confluence&#39;s own settings.</li>
+<li><strong>Page by page.</strong> Used for the top of a space, title conflicts, templates, trees with uncopyable content, and as a fallback: if the fast route fails, the job stops, and <strong>Resume</strong> continues page by page. Pages are copied one after another so that the order of siblings is kept, which takes longer.</li>
+</ul>
+<h2 id="links-in-the-copy">Links in the copy</h2>
+<p>After the copy, Treewright builds a map from every original page to its copy and rewrites each copied page from the content of its source page. Only the parts that need to change are changed. Everything else stays exactly as it was.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Kind</th><th scope="col">What happens</th></tr></thead><tbody><tr><td data-label="Kind">Page links</td><td data-label="What happens">Titles and space keys are pointed at the copies</td></tr><tr><td data-label="Kind">Macros</td><td data-label="What happens">Include Page, Excerpt Include, Children Display, Page Tree, Page Tree Search, attachments and galleries</td></tr><tr><td data-label="Kind">URLs</td><td data-label="What happens">Page URLs of the usual shapes, including short links, page IDs, the older display URLs and attachment downloads; anchors after the link are kept</td></tr><tr><td data-label="Kind">Queries</td><td data-label="What happens">Page IDs in the queries of macros such as Page Properties Report and Content by Label</td></tr><tr><td data-label="Kind">Anchors</td><td data-label="What happens">Old anchors that start with the page title follow the new title</td></tr><tr><td data-label="Kind">Attachments on other pages</td><td data-label="What happens">References to an attachment that lives on another page of the tree</td></tr></tbody></table></div>
+<p>Links to pages outside the copied tree keep pointing at the originals. When the copy lands in another space, a link by title that has no space key is fixed to the source space, so it keeps its meaning.</p>
+<p>If Treewright finds something it cannot safely rewrite, for example an unknown macro that still contains the ID of a source page, it adds a warning to the report instead of guessing.</p>
+<h2 id="jobs-and-reports">Jobs and reports</h2>
+<p>Open <strong>Apps</strong>, then <strong>Treewright</strong>. There are three tabs: <strong>Jobs</strong>, <strong>Templates</strong> and <strong>Edit restriction rules</strong>.</p>
+<p>The <strong>Jobs</strong> tab lists your 50 latest jobs from the last 90 days with their status. Choose <strong>Details</strong> on a job to see:</p>
+<ul>
+<li>the new pages, with links</li>
+<li>every rewritten link, before and after</li>
+<li>warnings</li>
+<li>pages that had problems, and pages that were copied without their restrictions</li>
+</ul>
+<p>A job ends as succeeded, succeeded with warnings, failed or cancelled.</p>
+<h3 id="stop-and-resume">Stop and resume</h3>
+<p>Choose <strong>Stop</strong> on a running job to cancel it. A stopped or failed job can be continued with <strong>Resume</strong>. Pages that an earlier attempt already created are recognised and reused, so a resumed job does not copy them again.</p>
+<h2 id="templates-with-variables">Templates with variables</h2>
+<p>A template is a page tree with placeholders in the titles and the text.</p>
+<h3 id="save-a-template">Save a template</h3>
+<ol>
+<li>Open the top page of the tree (a space just for templates works well) and choose <strong>Save page tree as template…</strong> in the ••• menu.</li>
+<li>Treewright looks for placeholders written as <code>{{Variable}}</code> in every title and every page. If the search cannot finish in the time available, it says how many pages it could search, and you can add the missing variables by hand.</li>
+<li>Give the template a <strong>Name of the template</strong> and, optionally, a description.</li>
+<li>Review the variables. For each one you can set the <strong>Question to ask</strong>, the <strong>Type</strong> (text, date or choice from a list), a <strong>Default value</strong> and whether it is <strong>Required</strong>. Choose <strong>Not a variable</strong> to drop something that only looks like one.</li>
+<li>Choose <strong>Save as template</strong>.</li>
+</ol>
+<p><code>{{Today}}</code> and <code>{{SpaceKey}}</code> are built in: today&#39;s date and the key of the destination space.</p>
+<p>If a placeholder is split by formatting, for example with bold or a link inside the braces, Treewright warns you. Retype it without formatting, or it is not replaced.</p>
+<p>The template list is kept by Treewright. The tree itself stays in Confluence, so attachments, labels and restrictions are still there when you use the template.</p>
+<h3 id="use-a-template">Use a template</h3>
+<ol>
+<li>Open <strong>Apps</strong>, <strong>Treewright</strong>, <strong>Templates</strong> and choose <strong>Use</strong> on a template.</li>
+<li>Fill in the form and choose the target space.</li>
+<li>Choose <strong>Preview</strong> to see the titles with your values filled in, then <strong>Create the pages</strong>.</li>
+</ol>
+<p>Values are inserted safely. Text is escaped properly, so a client called <code>Acme &amp; Sons</code> works in titles and in page text, and values that end up in code blocks or links are handled according to where they appear. Placeholders that Treewright does not know are left untouched and reported.</p>
+<p>If a page with a resulting title already exists, the new title gets a number, as with copying.</p>
+<h2 id="edit-restrictions-that-follow-the-tree">Edit restrictions that follow the tree</h2>
+<h3 id="apply-to-existing-pages">Apply to existing pages</h3>
+<ol>
+<li>Set the edit restrictions of the top page in Confluence, with the padlock at the top right of the page.</li>
+<li>Open the ••• menu and choose <strong>Apply edit restrictions to child pages…</strong>.</li>
+<li>Choose <strong>All pages below this page</strong> or <strong>Direct child pages only</strong>.</li>
+<li>Read the preview. It tells you who may edit the page, how many pages below it would change and how many already match. It also warns you if you are not on the edit list yourself.</li>
+<li>Choose <strong>Apply to</strong> the number of pages shown.</li>
+</ol>
+<p>Only edit restrictions are copied. View restrictions of the child pages are not changed. A page without edit restrictions cannot be used as the source, so nothing is removed by accident.</p>
+<h3 id="keep-doing-this-the-rule">Keep doing this (the rule)</h3>
+<p>Tick <strong>Keep doing this</strong> in the same dialog. Pages that are created, copied or moved below the page then get its edit restrictions automatically.</p>
+<ul>
+<li>Choose the scope with the radio buttons: all pages below the page, or its direct children only.</li>
+<li>If several rules apply to a page, the closest one wins.</li>
+<li>The change is made as the person who created, copied or moved the page. If Atlassian cannot act as that person, for example because the account was deactivated, Treewright uses its own identity for that one change.</li>
+<li>Pages created by a Treewright copy job are skipped on purpose, so a running job does not lock itself out. Afterwards you can apply the restrictions to the copies with one click.</li>
+<li>Confluence can deliver page events up to three minutes late, so a new page may need a moment.</li>
+</ul>
+<p>The <strong>Edit restriction rules</strong> tab lists every rule, lets you turn it on or off or remove it, and shows the recent activity of the last 14 days.</p>
+<h2 id="permissions-licensing-and-data">Permissions, licensing and data</h2>
+<ul>
+<li>Every request goes through Confluence as you, or, for background work, as the user who started the job. Confluence permissions decide what is possible.</li>
+<li>Production sites need an active license. When the license is not active, the features show a message, but you can still read the job history and stop running jobs.</li>
+<li>Page bodies are not stored. Jobs, reports, templates and rules are kept in Forge storage on your site, and a template keeps a few short excerpts of text where a placeholder could not be read. See <a href="/karelia-labs/products/treewright/security/">Security</a> for the full list and retention, and the <a href="/karelia-labs/products/treewright/privacy/">Privacy Policy</a>.</li>
+</ul>
+<h2 id="limits">Limits</h2>
+<ul>
+<li>Treewright copies page trees. Space settings, permissions, blogs and the theme are not copied, and there is no one-click space copy yet. Copy the top pages of a space one by one.</li>
+<li>Whiteboards, databases, folders, smart links used as pages and archived pages are skipped, together with everything below them. They are listed in the preview, and the report counts them.</li>
+<li>Pages you are not allowed to see cannot be listed by any API. They are not copied, and the preview can only mention this in general terms. When Confluence copies the whole tree itself, Treewright compares the number of pages with the number Confluence reports.</li>
+<li>A job copies up to 2,000 pages. Page by page copying is sequential, so large trees take minutes, not seconds.</li>
+<li>Edit restrictions are inherited as edit restrictions. Groups cannot be looked up, so the warning that you are not on the list applies to named people only.</li>
+<li>Confluence Cloud only.</li>
+</ul>
+<h2 id="need-help">Need help?</h2>
+<p>See the <a href="/karelia-labs/products/treewright/support/">support page</a> for how to reach us, what to include and answers to common questions.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#copy-a-page-tree-in-five-steps">Copy a page tree in five steps</a></li><li><a href="#copy-options">Copy options</a></li><li><a href="#the-preview">The preview</a></li><li><a href="#links-in-the-copy">Links in the copy</a></li><li><a href="#jobs-and-reports">Jobs and reports</a></li><li><a href="#templates-with-variables">Templates with variables</a></li><li><a href="#edit-restrictions-that-follow-the-tree">Edit restrictions that follow the tree</a></li><li><a href="#permissions-licensing-and-data">Permissions, licensing and data</a></li><li><a href="#limits">Limits</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence and Jira, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word and PDF Document Generator documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Word and PDF Document Generator, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/word-and-pdf-document-generator/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-2d6fb99f06.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Word and PDF Document Generator documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Word and PDF Document Generator, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/word-and-pdf-document-generator/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/word-and-pdf-document-generator/"><img class="logo" src="/karelia-labs/assets/products/word-and-pdf-document-generator.svg" alt="" width="144" height="144"><span class="t">Word and PDF Document Generator</span></a><span class="pband-sub">Word, PDF and Excel documents from Jira issues</span></div></div><nav class="tabs" aria-label="Word and PDF Document Generator"><div class="wrap"><ul><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Overview</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/support/">Support</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/security/">Security</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Word and PDF Document Generator.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#your-first-template-in-ten-minutes">Your first template in ten minutes</a></li><li><a href="#generate-a-document-from-an-issue">Generate a document from an issue</a></li><li><a href="#writing-templates">Writing templates</a></li><li><a href="#templates-for-lists-of-issues">Templates for lists of issues</a></li><li><a href="#the-template-library">The template library</a></li><li><a href="#bulk-documents">Bulk documents</a></li><li><a href="#excel-export">Excel export</a></li><li><a href="#jira-automation">Jira Automation</a></li><li><a href="#about-the-pdf">About the PDF</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Jira Cloud (Jira Software or Jira Service Management).</li>
+<li>The app installed on your site. Installing an app needs a Jira site administrator.</li>
+<li>Word, or any editor that saves <code>.docx</code> files, to write templates.</li>
+</ul>
+<p>The app works with the permissions of the person using it. The first time it is opened, Atlassian shows a consent screen. Approve it once.</p>
+<h2 id="your-first-template-in-ten-minutes">Your first template in ten minutes</h2>
+<ol>
+<li>In Word, write the document as you always do. Wherever a value from Jira should appear, type a tag in curly braces, for example <code>{issue.key}</code> and <code>{issue.summary}</code>.</li>
+<li>Save it as a <code>.docx</code> file.</li>
+<li>As a Jira administrator, open <strong>Jira settings, Apps, Document templates</strong>, choose <strong>Add a template</strong> and upload the file.</li>
+<li>Open an issue, open the ••• menu and choose <strong>Generate document…</strong>.</li>
+<li>Choose your template, select <strong>Preview tags</strong> to check every value, then select <strong>Generate document</strong>.</li>
+</ol>
+<p>The document is attached to the issue and offered for download.</p>
+<h2 id="generate-a-document-from-an-issue">Generate a document from an issue</h2>
+<p>In the dialog <strong>Generate document</strong>:</p>
+<ul>
+<li><strong>Template</strong>: search the library, or pick one of the two built-in samples for a single issue (<strong>Issue report</strong> and <strong>Customer handover and SLA summary</strong>). The third sample, <strong>Release notes</strong>, is made for a list of issues and is used on the <strong>Bulk</strong> tab.</li>
+<li><strong>Values for this template</strong>: fields that people fill in when they generate. Each <code>{params.name}</code> tag in a template becomes one of these fields.</li>
+<li><strong>Output</strong>: <strong>Word (.docx)</strong>, <strong>PDF (.pdf)</strong> or both, and whether to attach the document to the issue.</li>
+<li><strong>File name</strong>: a name pattern. Tags work in it, for example <code>Handover {issue.key}</code>. Leave it empty to use the name pattern of the template.</li>
+<li><strong>Language of dates and numbers</strong> and <strong>Time zone</strong>: leave them empty to use your own, or choose others.</li>
+</ul>
+<p>Select <strong>Preview tags</strong> before you generate. It lists every tag of the template with the value it gets for this issue, and marks the tags that found no data. A typo or an empty field is caught before the file reaches a customer.</p>
+<p>After <strong>Generate document</strong>, each file shows whether it was attached to the issue, and you can download it from the dialog. A file larger than about 2.4 MB is too large for that, and the dialog then points you to the attachments of the issue. If you may not attach files to that issue, the file shows <strong>Not attached</strong> with Jira&#39;s message, and the download still works.</p>
+<p>You can also generate for any issue from <strong>Apps, Documents, Generate</strong> by pasting the address of the issue.</p>
+<h2 id="writing-templates">Writing templates</h2>
+<p>A tag is a path into the data of the issue. Everything the issue has can be reached, and empty values give empty text. The <strong>Guide</strong> tab in the app has more examples, and every example in it is tested against the real engine.</p>
+<h3 id="values-from-the-issue">Values from the issue</h3>
+<pre tabindex="0"><code>Issue {issue.key}: {issue.summary}
+Status {issue.status.name}, priority {issue.priority.name}, type {issue.type.name}
+Assigned to {issue.assignee.displayName | default:&quot;nobody yet&quot;}
+Created {issue.created | date:&quot;d MMMM yyyy&quot;}, due {issue.dueDate | date}
+Story points: {issue.fields.customfield_10010}
+Story points: {issue.fieldsByName[&quot;Story Points&quot;]}
+Customer: {params.customer}
+Made by {user.displayName} on {now | date:&quot;yyyy-MM-dd&quot;} at {site.name}
+</code></pre>
+<ul>
+<li>Custom fields are reached by their id (for example <code>customfield_10010</code>, which you find in Jira&#39;s custom field settings), or by their name with <code>fieldsByName</code>.</li>
+<li><code>user</code> is the person who generates, <code>now</code> the clock, <code>site</code> the Jira site, and <code>params</code> the values people type in.</li>
+<li><code>default</code> fills in a text when the value is empty.</li>
+</ul>
+<h3 id="formatted-text">Formatted text</h3>
+<p>Descriptions and comments are formatted text in Jira. <code>{@issue.description}</code> puts the formatting (headings, lists, tables, bold) into your document. The tag must be alone in its paragraph. Use the filter <code>plain</code> to get only the words.</p>
+<h3 id="repeating-things">Repeating things</h3>
+<p>A block starts with <code>{#something}</code> and ends with <code>{/}</code>. It repeats once for every item of a list: subtasks, comments, work logs, linked issues, history.</p>
+<pre tabindex="0"><code>{#issue.subtasks}
+{key}  {summary}  ({status.name})
+{/}
+</code></pre>
+<ul>
+<li>Put the opening and the closing tag in paragraphs of their own to repeat the paragraphs between them.</li>
+<li>In a table, put the opening tag in the first cell and the closing tag in the last cell of a row. The whole row repeats.</li>
+<li>Inside the block, names refer to the item. <code>{$number}</code> counts from 1. There are also <code>$index</code>, <code>$first</code>, <code>$last</code>, <code>$count</code>, <code>$odd</code> and <code>$even</code>.</li>
+</ul>
+<pre tabindex="0"><code>{#issue.comments | where:&quot;public&quot; | take:3}
+{$number}. {author.displayName}: {body | plain}
+{/}
+</code></pre>
+<h3 id="showing-and-hiding-text">Showing and hiding text</h3>
+<p><code>{#condition}</code> shows its block only when the condition is true. <code>{^condition}</code> shows it when the value is empty or false. Comparisons, <code>and</code>, <code>or</code>, <code>not</code>, <code>in</code> and <code>contains</code> work.</p>
+<pre tabindex="0"><code>{#issue.priority.name == &quot;High&quot;}
+Escalated to the duty manager.
+{/}
+{^issue.resolution}
+Still open.
+{/}
+</code></pre>
+<h3 id="filters">Filters</h3>
+<p>A filter changes a value: <code>{value | filter}</code> or <code>{value | filter:argument}</code>. Filters can follow each other, and arguments are separated by colons.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Purpose</th><th scope="col">Examples</th></tr></thead><tbody><tr><td data-label="Purpose">Text</td><td data-label="Examples"><code>upper</code>, <code>truncate:20</code>, <code>plain</code>, <code>lines</code>, <code>first</code>, <code>pad:3</code></td></tr><tr><td data-label="Purpose">Lists</td><td data-label="Examples"><code>join:&quot;, &quot;</code>, <code>length</code>, <code>count</code>, <code>where:&quot;public&quot;</code>, <code>take:3</code>, <code>sort</code>, <code>groupBy</code>, <code>sum</code></td></tr><tr><td data-label="Purpose">Numbers and time</td><td data-label="Examples"><code>number:2</code>, <code>currency:&quot;EUR&quot;</code>, <code>percent:1</code>, <code>hours:1</code>, <code>duration</code></td></tr><tr><td data-label="Purpose">Dates</td><td data-label="Examples"><code>date</code>, <code>date:&quot;d MMMM yyyy&quot;</code>, <code>datetime</code>, <code>time</code>, <code>daysAgo</code>, <code>addDays</code></td></tr><tr><td data-label="Purpose">Choice</td><td data-label="Examples"><code>yesno:&quot;assigned&quot;:&quot;not assigned&quot;</code>, <code>default:&quot;none&quot;</code></td></tr></tbody></table></div>
+<p>Dates and numbers follow the language you choose when generating. Set a language on the template to always use the same one.</p>
+<h3 id="tips">Tips</h3>
+<ul>
+<li>Type a tag in one go. If Word splits it into pieces (after a spell-check or a format change inside the tag), the app puts it back together.</li>
+<li>Curly braces start and end a tag. To print one, write <code>{chars.open}</code> for <code>{</code> and <code>{chars.close}</code> for <code>}</code>.</li>
+<li>Straight and curly quotes both work inside tags. Spaces around the pipe are fine.</li>
+<li>Tags work in the body, in headers and in footers. For page numbers use Word&#39;s own page number field.</li>
+<li>A tag that finds nothing leaves its place empty. The preview lists such tags, so a typo does not go unnoticed.</li>
+<li>Pictures in the template are kept. Pictures from issues are not inserted.</li>
+</ul>
+<h2 id="templates-for-lists-of-issues">Templates for lists of issues</h2>
+<p>A template used with a JQL query (on the <strong>Bulk</strong> tab) starts from <code>{issues}</code>, the list, and <code>{count}</code>. The issues are also grouped for you: <code>byType</code>, <code>byStatus</code>, <code>byPriority</code>, <code>byAssignee</code>, <code>byProject</code>, <code>byComponent</code> and <code>byFixVersion</code>. Blocks can be nested.</p>
+<pre tabindex="0"><code>{count} issues found.
+{#byStatus}
+{name}: {count}
+{#issues}
+- {key} {summary}
+{/}
+{/}
+</code></pre>
+<h2 id="the-template-library">The template library</h2>
+<p>Jira administrators manage templates under <strong>Jira settings, Apps, Document templates</strong>. The <strong>Templates</strong> tab lists them. Everyone who uses the app can read the list.</p>
+<ul>
+<li><strong>Add a template</strong> uploads a Word file in pieces, so large pictures work. A template can be up to 10 MB.</li>
+<li>On upload, the app checks the tags. If a tag is broken, for example a block that is opened and never closed, a banner names it and nothing is saved.</li>
+<li><strong>Details</strong> shows the tags a template reads, what it is used for (one document per issue, or one document from a list of issues), and lets you edit the name, description, file name pattern, language and the explanations of the values people fill in.</li>
+<li><strong>Download the Word file</strong> and <strong>Replace the Word file</strong> let you change the template in Word.</li>
+<li>Three built-in samples ship with the app: <strong>Issue report</strong>, <strong>Release notes</strong> from a JQL result, and <strong>Customer handover and SLA summary</strong>. Use <strong>Copy to my templates</strong> to get one you can change.</li>
+</ul>
+<p>Files are refused as templates when they are macro-enabled, old <code>.doc</code> files, password-protected, zip bombs, over 10 MB or structurally broken.</p>
+<h2 id="bulk-documents">Bulk documents</h2>
+<p>On <strong>Apps, Documents, Bulk</strong>, choose what to make:</p>
+<ul>
+<li><strong>A document for each issue</strong>: every issue gets its own file, attached to the issue.</li>
+<li><strong>One combined document</strong>: a report over all issues, such as release notes for a fix version. It can also be attached to one issue of your choice.</li>
+</ul>
+<p>Enter a <strong>JQL query</strong> and select <strong>Check query</strong>. Jira&#39;s own message tells you what is wrong with a query. Choose the template, set <strong>At most</strong> how many issues to use, and select <strong>Start</strong>. The job runs in the background. You can close the page.</p>
+<ul>
+<li>A job handles up to 5,000 issues (1,000 by default), and a site can have five active jobs at a time.</li>
+<li>Open <strong>Jobs</strong> to follow progress. <strong>Stop the job</strong> stops it and <strong>Resume</strong> continues where it stopped. No file is attached twice.</li>
+<li>Jobs show what happened to every issue. Administrators can choose <strong>Show the jobs of everyone</strong>. <strong>Delete the job</strong> removes its records and files.</li>
+<li>Combined documents and spreadsheets stay available for download on the Jobs page for 3 days. Job records are kept for 14 days after their last change.</li>
+</ul>
+<h2 id="excel-export">Excel export</h2>
+<p>On <strong>Apps, Documents, Spreadsheet</strong>, enter a JQL query and choose the <strong>Columns</strong>: search the fields of your site, add standard and custom fields, and change the order. Choose a <strong>Sheet name</strong> and a <strong>File name</strong>, then <strong>Start export</strong>.</p>
+<p>The workbook has a bold header row that stays in place when you scroll, filters, real Excel dates in your time zone, and links on the issue keys. A second sheet, <strong>Query</strong>, keeps the JQL. Cells that look like formulas are stored as text.</p>
+<h2 id="jira-automation">Jira Automation</h2>
+<p>In Jira Automation, add the action <strong>Generate document from template</strong> to a rule, for example when an issue is transitioned, created or commented. Its inputs are:</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Input</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td data-label="Input">Issue key</td><td data-label="Meaning">The issue to make the document for, normally the smart value <code>{{issue.key}}</code></td></tr><tr><td data-label="Input">Template name</td><td data-label="Meaning">The name of a template in the library, or one of the two built-in samples for a single issue</td></tr><tr><td data-label="Input">Format</td><td data-label="Meaning"><code>docx</code>, <code>pdf</code> or <code>both</code>. The default is <code>docx</code></td></tr><tr><td data-label="Input">File name</td><td data-label="Meaning">A name pattern, for example <code>Handover {issue.key}</code>. Empty uses the pattern of the template</td></tr><tr><td data-label="Input">Language</td><td data-label="Meaning">A language tag such as <code>en-US</code> or <code>sv-SE</code>. Empty uses the language of the rule&#39;s user</td></tr><tr><td data-label="Input">Time zone</td><td data-label="Meaning">A time zone such as <code>Europe/Stockholm</code>. Empty uses the one of the rule&#39;s user, or UTC</td></tr><tr><td data-label="Input">Parameters</td><td data-label="Meaning">One <code>name=value</code> per line, for the <code>{params.name}</code> tags</td></tr></tbody></table></div>
+<p>The document is attached to the issue. Errors, for example an unknown template name, appear in the audit log of the rule together with up to ten of the template names that exist.</p>
+<p>The action runs as the user the platform runs the rule as. When the platform has no user for that run, it runs as the app itself, and the app is then the author of the attachment.</p>
+<h2 id="about-the-pdf">About the PDF</h2>
+<p>The PDF is made from the finished Word file, inside Atlassian, with no external conversion service. It is a clean rendition, not a pixel-perfect copy.</p>
+<ul>
+<li>Included: styles, lists, tables with merged cells and repeated header rows, pictures (PNG and JPEG), links, headers and footers with page numbers.</li>
+<li>Left out: text boxes, shapes, footnotes and columns. The Word file keeps them.</li>
+<li>The font is Roboto, embedded in the PDF (monospace text uses Courier).</li>
+<li>Page size and margins come from the Word file.</li>
+</ul>
+<h2 id="limits">Limits</h2>
+<ul>
+<li>Templates are written in Word. There is no template editor inside Jira.</li>
+<li>Pictures from issues are not inserted into documents.</li>
+<li>A template can be up to 10 MB, and a bulk job handles up to 5,000 issues.</li>
+<li>The PDF leaves out text boxes, shapes, footnotes and columns.</li>
+<li>Support for your own templates is limited to explaining how the tags and filters work.</li>
+<li>Microsoft Word and Excel are trademarks of Microsoft Corporation. This app does not use Microsoft software and is not affiliated with Microsoft.</li>
+</ul>
+<h2 id="permissions-and-data">Permissions and data</h2>
+<p>The app reads Jira data as you, and its only write is adding files to issues. Templates and job records are kept in Forge storage on your site for the periods listed in <a href="/karelia-labs/products/word-and-pdf-document-generator/security/">Security</a>. See also the <a href="/karelia-labs/products/word-and-pdf-document-generator/privacy/">Privacy Policy</a>.</p>
+<h2 id="need-help">Need help?</h2>
+<p>See the <a href="/karelia-labs/products/word-and-pdf-document-generator/support/">support page</a> for how to reach us, what to include and answers to common questions.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#your-first-template-in-ten-minutes">Your first template in ten minutes</a></li><li><a href="#generate-a-document-from-an-issue">Generate a document from an issue</a></li><li><a href="#writing-templates">Writing templates</a></li><li><a href="#templates-for-lists-of-issues">Templates for lists of issues</a></li><li><a href="#the-template-library">The template library</a></li><li><a href="#bulk-documents">Bulk documents</a></li><li><a href="#excel-export">Excel export</a></li><li><a href="#jira-automation">Jira Automation</a></li><li><a href="#about-the-pdf">About the PDF</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence and Jira, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>

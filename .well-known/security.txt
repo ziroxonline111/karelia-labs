@@ -1,0 +1,5 @@
+Contact: mailto:support@karelialabs.atlassian.net
+Expires: 2027-10-17T16:05:59.300Z
+Preferred-Languages: en
+Canonical: https://ziroxonline111.github.io/karelia-labs/.well-known/security.txt
+Policy: https://ziroxonline111.github.io/karelia-labs/security/

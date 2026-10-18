@@ -1,0 +1,23 @@
+# Apache settings for static hosting (for example one.com). Every block is conditional, so a host that lacks a module
+# simply skips it. Not needed on Cloudflare Pages.
+ErrorDocument 404 /karelia-labs/404.html
+
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'none'; img-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  <FilesMatch "^site-[0-9a-f]+\.css$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css image/svg+xml application/xml text/plain
+</IfModule>
+
+# To force https (one.com can also do this in its control panel), remove the # in front of the next four lines.
+# RewriteEngine On
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

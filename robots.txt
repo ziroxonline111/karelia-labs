@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ziroxonline111.github.io/karelia-labs/sitemap.xml

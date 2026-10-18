@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specfold documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Specfold, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/specfold/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-2d6fb99f06.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Specfold documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Specfold, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/specfold/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/specfold/"><img class="logo" src="/karelia-labs/assets/products/specfold.svg" alt="" width="144" height="144"><span class="t">Specfold</span></a><span class="pband-sub">OpenAPI and AsyncAPI viewer for Confluence</span></div></div><nav class="tabs" aria-label="Specfold"><div class="wrap"><ul><li><a href="/karelia-labs/products/specfold/">Overview</a></li><li><a href="/karelia-labs/products/specfold/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/specfold/support/">Support</a></li><li><a href="/karelia-labs/products/specfold/security/">Security</a></li><li><a href="/karelia-labs/products/specfold/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/specfold/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Specfold.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#show-a-specification-on-a-page-in-four-steps">Show a specification on a page in four steps</a></li><li><a href="#formats">Formats</a></li><li><a href="#using-the-viewer">Using the viewer</a></li><li><a href="#compare-two-versions">Compare two versions</a></li><li><a href="#keep-the-documentation-current">Keep the documentation current</a></li><li><a href="#macro-settings">Macro settings</a></li><li><a href="#when-something-is-wrong-with-the-file">When something is wrong with the file</a></li><li><a href="#moving-from-a-connect-macro">Moving from a Connect macro</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Confluence Cloud.</li>
+<li>Specfold installed on your site. Installing an app needs a Confluence site administrator.</li>
+<li>An API specification as a YAML or JSON file: OpenAPI 3.0 or 3.1, Swagger 2.0, or AsyncAPI 2 or 3.</li>
+</ul>
+<p>Specfold reads the specification as the person viewing the page, so Confluence permissions apply. A reader who cannot see the page or its attachment sees an error and no specification. The first time an app is used, Atlassian shows a consent screen. Approve it once.</p>
+<h2 id="show-a-specification-on-a-page-in-four-steps">Show a specification on a page in four steps</h2>
+<ol>
+<li>Create or open a page, for example <strong>API docs</strong>, and attach your specification file to it.</li>
+<li>In the editor, type <code>/openapi</code> and choose <strong>OpenAPI and AsyncAPI viewer</strong>. The settings dialog <strong>API specification</strong> opens.</li>
+<li>Under <strong>Where is the specification?</strong> leave <strong>A file attached to this page</strong> selected and choose the file under <strong>File</strong>. Below the list, a check tells you what Specfold found, for example &quot;OpenAPI 3.0: Pet Clinic API v2.1.0, 7 operations, 12 models, no problems found&quot;.</li>
+<li>Choose <strong>Save</strong> and publish the page.</li>
+</ol>
+<p>Prefer not to attach a file? Choose <strong>Text pasted here</strong> instead and paste the specification into the settings. Pasted text is stored by Confluence in the page itself, so for bigger specifications attach the file.</p>
+<h2 id="formats">Formats</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Format</th><th scope="col">Versions</th></tr></thead><tbody><tr><td data-label="Format">OpenAPI</td><td data-label="Versions">3.0 and 3.1, including webhooks and callbacks</td></tr><tr><td data-label="Format">Swagger</td><td data-label="Versions">2.0, converted for display</td></tr><tr><td data-label="Format">AsyncAPI</td><td data-label="Versions">2.x (publish and subscribe) and 3.x (operations, channels, messages), including bindings and traits</td></tr></tbody></table></div>
+<p>YAML and JSON are both accepted. A file can be up to 4 MB. Pasted text can be up to 200,000 characters.</p>
+<p>OpenAPI 3.2 and AsyncAPI versions above 3.0 are shown with the 3.1 and 3.0 features respectively.</p>
+<h2 id="using-the-viewer">Using the viewer</h2>
+<ul>
+<li><strong>Endpoints</strong> are grouped by tag, with side navigation. For AsyncAPI the first tab is <strong>Operations</strong>.</li>
+<li><strong>Models</strong> shows schemas. For AsyncAPI the other tabs are <strong>Messages</strong> and <strong>Schemas</strong>. Schemas that use <code>allOf</code> are merged, <code>oneOf</code> and <code>anyOf</code> are shown with their discriminators, and recursive schemas open one level at a time.</li>
+<li><strong>Search</strong> covers method, path, summary, operation id, tags, parameters and the start of descriptions.</li>
+<li><strong>Examples</strong> are the ones written in the specification. Where there are none, Specfold generates sample data from the schema. Every HTTP operation also has a cURL command to copy. Nothing is ever sent.</li>
+<li><strong>Links to one operation</strong>: the link icon next to an operation copies the address of the page with the operation selected. Opening that address opens the operation and scrolls to it.</li>
+<li><strong>Colours</strong>: the viewer follows the theme of Confluence, light or dark. Each reader can also switch between automatic, light and dark with the button at the top right of the viewer.</li>
+</ul>
+<p>Descriptions in a specification may use Markdown. It is shown as formatted text, never as HTML.</p>
+<h2 id="compare-two-versions">Compare two versions</h2>
+<p>In the macro settings, choose <strong>Compare with (optional)</strong> and pick an older file that is attached to the page. The viewer gets a <strong>Changes</strong> tab that lists added, removed and changed operations and models. Changes that may break existing clients are marked <strong>potentially breaking</strong>. That marker is a heuristic and an aid, not a guarantee.</p>
+<h2 id="keep-the-documentation-current">Keep the documentation current</h2>
+<p>The viewer always shows the newest version of the attached file. To update the documentation, upload a new version of the same attachment. The page itself does not need to change.</p>
+<p>If your specification is built by a pipeline, add a step that uploads it to the page with the Confluence REST endpoint for updating attachment content. The documentation then follows every release.</p>
+<h2 id="macro-settings">Macro settings</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Setting</th><th scope="col">What it does</th></tr></thead><tbody><tr><td data-label="Setting">Where is the specification?</td><td data-label="What it does"><strong>A file attached to this page</strong>, or <strong>Text pasted here</strong></td></tr><tr><td data-label="Setting">File</td><td data-label="What it does">The YAML or JSON attachment to show. The viewer always shows the newest version of that file. When no YAML or JSON file is attached yet, <strong>Reload list</strong> appears: use it after you attach one</td></tr><tr><td data-label="Setting">Compare with (optional)</td><td data-label="What it does">A second attachment for the <strong>Changes</strong> tab, or <strong>No comparison</strong></td></tr><tr><td data-label="Setting">Height</td><td data-label="What it does"><strong>Compact (480 px)</strong>, <strong>Medium (640 px)</strong>, <strong>Standard (800 px)</strong>, <strong>Tall (960 px)</strong> or <strong>Grow with the content</strong></td></tr><tr><td data-label="Setting">Colours</td><td data-label="What it does"><strong>Match Confluence</strong>, <strong>Always light</strong> or <strong>Always dark</strong></td></tr></tbody></table></div>
+<h2 id="when-something-is-wrong-with-the-file">When something is wrong with the file</h2>
+<p>You get a readable message instead of a blank macro:</p>
+<ul>
+<li><strong>Syntax errors</strong> in YAML or JSON are shown with the line, the column and a snippet of the source.</li>
+<li><strong>Unknown fields</strong> come with a &quot;did you mean&quot; suggestion.</li>
+<li><strong>Unresolved or external references</strong> are explained. See the note on references below.</li>
+<li>More than sixty other checks cover missing fields, wrong types, duplicate operation ids and similar problems.</li>
+</ul>
+<p>A specification with warnings is still displayed, with a banner above it that lists them.</p>
+<h3 id="references-to-other-files">References to other files</h3>
+<p>Specfold reads one self-contained file. A <code>$ref</code> that points to another file or to a URL cannot be followed. Bundle the references into one file first (most API tooling has a bundle command), then attach the bundled file.</p>
+<h2 id="moving-from-a-connect-macro">Moving from a Connect macro</h2>
+<p>Atlassian ends support for apps built on Atlassian Connect, and older OpenAPI and Swagger macros are among them. To switch:</p>
+<ol>
+<li>In the old macro, note where the specification comes from and download the file, for example from your repository or API gateway.</li>
+<li>Attach the file to the Confluence page, insert <strong>OpenAPI and AsyncAPI viewer</strong> and pick the file.</li>
+<li>Keep it current by uploading new versions of the same attachment, by hand or from a pipeline.</li>
+<li>Remove the old macro.</li>
+</ol>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">In a Connect macro</th><th scope="col">In Specfold</th></tr></thead><tbody><tr><td data-label="In a Connect macro">Specification loaded from a URL</td><td data-label="In Specfold">Attach the file and update it from your pipeline</td></tr><tr><td data-label="In a Connect macro">Try it out</td><td data-label="In Specfold">Not available by design, because nothing is sent. cURL examples to copy instead</td></tr><tr><td data-label="In a Connect macro">One specification per macro</td><td data-label="In Specfold">The same. Use one macro per specification</td></tr><tr><td data-label="In a Connect macro">OpenAPI only</td><td data-label="In Specfold">Also AsyncAPI 2 and 3, and comparison of two versions</td></tr></tbody></table></div>
+<h2 id="limits">Limits</h2>
+<ul>
+<li>No specification from a URL and no external references. The specification comes from the page.</li>
+<li>No Try it out. The cURL examples are samples generated from the specification.</li>
+<li>Not shown: <code>if/then/else</code>, <code>dependentSchemas</code> and <code>$dynamicRef</code>. <code>patternProperties</code> is listed but not evaluated.</li>
+<li>AsyncAPI payloads in another format than JSON Schema (for example Avro or Protobuf) are shown as raw text. The <code>reply</code> part of AsyncAPI 3 is not shown.</li>
+<li>Images in descriptions are not loaded. Links in descriptions open through Confluence, which asks you before it opens a new tab.</li>
+<li>The macro is a placeholder in PDF and Word exports of the page.</li>
+<li>A link to one operation scrolls only when the macro has a fixed height.</li>
+<li>Readers need a Confluence account with access to the page. Anonymous access is not supported.</li>
+</ul>
+<h2 id="permissions-and-data">Permissions and data</h2>
+<p>Specfold asks for one permission, <code>read:attachment:confluence</code>, and uses it as the person viewing the page. It stores nothing. See <a href="/karelia-labs/products/specfold/security/">Security</a> and the <a href="/karelia-labs/products/specfold/privacy/">Privacy Policy</a>.</p>
+<h2 id="need-help">Need help?</h2>
+<p>See the <a href="/karelia-labs/products/specfold/support/">support page</a> for how to reach us, what to include and answers to common questions.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#show-a-specification-on-a-page-in-four-steps">Show a specification on a page in four steps</a></li><li><a href="#formats">Formats</a></li><li><a href="#using-the-viewer">Using the viewer</a></li><li><a href="#compare-two-versions">Compare two versions</a></li><li><a href="#keep-the-documentation-current">Keep the documentation current</a></li><li><a href="#macro-settings">Macro settings</a></li><li><a href="#when-something-is-wrong-with-the-file">When something is wrong with the file</a></li><li><a href="#moving-from-a-connect-macro">Moving from a Connect macro</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence and Jira, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>

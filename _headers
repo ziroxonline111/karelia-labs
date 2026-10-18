@@ -1,0 +1,9 @@
+# Cloudflare Pages and Netlify read this file. It is not needed on other hosts.
+/*
+  Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+/karelia-labs/assets/site-2d6fb99f06.css
+  Cache-Control: public, max-age=31536000, immutable
