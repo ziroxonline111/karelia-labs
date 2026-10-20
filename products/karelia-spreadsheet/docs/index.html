@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karelia Spreadsheet documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Karelia Spreadsheet, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/karelia-spreadsheet/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-8b71698148.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karelia Spreadsheet documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Karelia Spreadsheet, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/karelia-spreadsheet/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/karelia-spreadsheet/"><img class="logo" src="/karelia-labs/assets/products/karelia-spreadsheet.svg" alt="" width="144" height="144"><span class="t">Karelia Spreadsheet</span></a><span class="pband-sub">Edit Statamic entries in a spreadsheet</span></div></div><nav class="tabs" aria-label="Karelia Spreadsheet"><div class="wrap"><ul><li><a href="/karelia-labs/products/karelia-spreadsheet/">Overview</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/support/">Support</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/security/">Security</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Karelia Spreadsheet.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install">Install</a></li><li><a href="#open-a-sheet">Open a sheet</a></li><li><a href="#edit">Edit</a></li><li><a href="#which-fields-can-be-edited">Which fields can be edited</a></li><li><a href="#saving">Saving</a></li><li><a href="#find-and-replace">Find and replace</a></li><li><a href="#csv-out-and-in">CSV out and in</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#good-to-know">Good to know</a></li><li><a href="#remove-the-addon">Remove the addon</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Statamic 6.20 or later, on PHP 8.3 or later.</li>
+<li>Composer on the server or in your deployment.</li>
+<li>Statamic Core or Pro. Roles and permissions are a Pro feature, so on Core only the super admin uses the spreadsheet.</li>
+</ul>
+<h2 id="install">Install</h2>
+<ol>
+<li>In the folder where your site is installed, run:</li>
+</ol>
+<pre tabindex="0"><code class="language-bash">composer require karelialabs/statamic-spreadsheet
+</code></pre>
+<ol start="2">
+<li>Buy a licence on the Statamic Marketplace and attach it to your site in your statamic.com account, as with any paid addon. Local and staging copies of the site need no licence.</li>
+</ol>
+<p><strong>Spreadsheet</strong> appears under <strong>Content</strong> in the Control Panel for super admins. To let other roles use it, tick <strong>Use the spreadsheet</strong> under <strong>Users → Roles</strong>.</p>
+<h2 id="open-a-sheet">Open a sheet</h2>
+<ul>
+<li>Open <strong>Content → Spreadsheet</strong> and pick a collection, or</li>
+<li>select entries in any entry listing and choose the bulk action <strong>Edit in Spreadsheet</strong> to open only those.</li>
+</ul>
+<p>Use <strong>Columns</strong> to choose which fields to show. Your choice is remembered per collection in this browser. On a multi-site install, switch site at the top; fields that are not localizable are locked on translations.</p>
+<h2 id="edit">Edit</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">To</th><th scope="col">Do this</th></tr></thead><tbody><tr><td data-label="To">Type into a cell</td><td data-label="Do this">Select it and start typing, or press Enter or double-click. Enter keeps the value, Esc cancels</td></tr><tr><td data-label="To">Move around</td><td data-label="Do this">Arrow keys and Tab. Shift with the arrows selects a range</td></tr><tr><td data-label="To">Paste a block</td><td data-label="Do this">Copy cells in Excel or Google Sheets, select the top-left cell here and press Ctrl+V</td></tr><tr><td data-label="To">Fill down</td><td data-label="Do this">Drag the small square at the corner of a selection</td></tr><tr><td data-label="To">Flip a toggle</td><td data-label="Do this">Select it and press Enter</td></tr><tr><td data-label="To">Pick tags, entries, users, assets or options</td><td data-label="Do this">Press Enter on the cell to open a picker with search</td></tr><tr><td data-label="To">Undo or redo</td><td data-label="Do this">Ctrl+Z and Ctrl+Y, for every edit, paste, fill, replace and import</td></tr><tr><td data-label="To">Save</td><td data-label="Do this"><strong>Save</strong> or Ctrl+S</td></tr></tbody></table></div>
+<p>Nothing is saved until you press <strong>Save</strong>. Changed cells are highlighted yellow. A value that cannot be right, such as a word in a number field or an unknown tag, is marked red straight away and is not sent.</p>
+<p>When you paste, yes/no, true/false and 1/0 all work for toggles, option labels and values both work, and <code>,</code> separates several tags or options. Pasted entry, user and asset values must be IDs (or term slugs for fields with one taxonomy); use the picker to search by title.</p>
+<h2 id="which-fields-can-be-edited">Which fields can be edited</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Field type</th><th scope="col">Editor</th></tr></thead><tbody><tr><td data-label="Field type">Text, Textarea, Markdown, Slug, Code, Color, Time, Video</td><td data-label="Editor">Text</td></tr><tr><td data-label="Field type">Integer, Float, Range</td><td data-label="Editor">Number</td></tr><tr><td data-label="Field type">Toggle, Published</td><td data-label="Editor">Toggle</td></tr><tr><td data-label="Field type">Select, Radio, Button Group, Checkboxes</td><td data-label="Editor">Options, with a picker</td></tr><tr><td data-label="Field type">Date</td><td data-label="Editor">Date</td></tr><tr><td data-label="Field type">Entries, Terms, Taxonomies, Users, Assets</td><td data-label="Editor">Picker with search</td></tr><tr><td data-label="Field type">Bard, Replicator, Grid, Table, Group and similar</td><td data-label="Editor">Shown read-only for reference. Edit them on the entry page</td></tr></tbody></table></div>
+<h2 id="saving">Saving</h2>
+<p>Every changed entry is saved the way Statamic&#39;s own publish form saves it: through the blueprint&#39;s validation rules, the fieldtypes&#39; processing, revisions (as a working copy where revisions are on) and the last-modified information. Errors come back on the exact cell; hover it to read the reason. Entries that saved lose their highlight, and the rest stay so you can fix them and save again.</p>
+<p>If a new slug would give two entries the same URL, that entry is not saved and the cell says why.</p>
+<h2 id="find-and-replace">Find and replace</h2>
+<p><strong>Find and replace</strong> searches one column or every text column. Choose <strong>Match case</strong> or <strong>Whole cell</strong> if you need them. It shows how many cells will change before you replace, and the result is one step you can undo.</p>
+<h2 id="csv-out-and-in">CSV out and in</h2>
+<p><strong>Export CSV</strong> downloads the visible columns plus an <code>id</code> column. Relationship fields are written as IDs, several values are separated by <code>, </code> and toggles as <code>yes</code> and <code>no</code>. Cells that Excel could run as a formula are written safely.</p>
+<p><strong>Import CSV</strong> reads the same format, comma or semicolon separated, in UTF-8. Columns can be named by handle or by label, and rows are matched by <code>id</code> (or by <code>slug</code>). Imported values show up as unsaved changes you can check before saving. Rows without a matching entry are skipped and counted. Import never creates or deletes entries.</p>
+<h2 id="permissions">Permissions</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Permission</th><th scope="col">Lets the user</th></tr></thead><tbody><tr><td data-label="Permission">Use the spreadsheet</td><td data-label="Lets the user">Open the spreadsheet. Added under <strong>Users → Roles</strong></td></tr></tbody></table></div>
+<p>On top of that, Statamic&#39;s own permissions apply to every cell: users see only entries they can view, can change only entries they can edit, need publish rights to change the status, and cannot change the author unless they may edit other authors&#39; entries.</p>
+<h2 id="configuration">Configuration</h2>
+<pre tabindex="0"><code class="language-bash">php artisan vendor:publish --tag=statamic-spreadsheet-config
+</code></pre>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Option</th><th scope="col">Default</th><th scope="col">What it does</th></tr></thead><tbody><tr><td data-label="Option"><code>limit</code></td><td data-label="Default"><code>2000</code></td><td data-label="What it does">Most entries loaded into one sheet (<code>STATAMIC_SPREADSHEET_LIMIT</code>). Search, or open a selection, to edit the rest</td></tr></tbody></table></div>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li>Field conditions (show and hide rules) are not applied in the grid. Every field in the blueprint is shown, and its validation rules still apply when saving.</li>
+<li>The grid loads only when a sheet is opened, so the rest of the Control Panel is not slowed down.</li>
+<li>It works with flat files and with the Eloquent driver, in light and dark mode, and on small screens.</li>
+</ul>
+<h2 id="remove-the-addon">Remove the addon</h2>
+<pre tabindex="0"><code class="language-bash">composer remove karelialabs/statamic-spreadsheet
+</code></pre>
+<p>The addon stores nothing of its own on the server, so nothing is left behind.</p>
+<h2 id="need-help">Need help?</h2>
+<p>See the <a href="/karelia-labs/products/karelia-spreadsheet/support/">support page</a>, or write to the support address there with your Statamic version and the addon version.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install">Install</a></li><li><a href="#open-a-sheet">Open a sheet</a></li><li><a href="#edit">Edit</a></li><li><a href="#which-fields-can-be-edited">Which fields can be edited</a></li><li><a href="#saving">Saving</a></li><li><a href="#find-and-replace">Find and replace</a></li><li><a href="#csv-out-and-in">CSV out and in</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#good-to-know">Good to know</a></li><li><a href="#remove-the-addon">Remove the addon</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence, Jira, Flarum and Statamic, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li><li><a href="/karelia-labs/products/karelia-translate/">Karelia Translate</a></li><li><a href="/karelia-labs/products/karelia-trash/">Karelia Trash</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/">Karelia Spreadsheet</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="https://karelialabs.com/tools">All tools at karelialabs.com</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Flarum, Statamic and the other names on this site belong to their owners. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>

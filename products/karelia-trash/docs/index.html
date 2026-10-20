@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karelia Trash documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Karelia Trash, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/karelia-trash/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-8b71698148.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karelia Trash documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Karelia Trash, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/karelia-trash/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/karelia-trash/"><img class="logo" src="/karelia-labs/assets/products/karelia-trash.svg" alt="" width="144" height="144"><span class="t">Karelia Trash</span></a><span class="pband-sub">A trash bin for the Statamic Control Panel</span></div></div><nav class="tabs" aria-label="Karelia Trash"><div class="wrap"><ul><li><a href="/karelia-labs/products/karelia-trash/">Overview</a></li><li><a href="/karelia-labs/products/karelia-trash/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/karelia-trash/support/">Support</a></li><li><a href="/karelia-labs/products/karelia-trash/security/">Security</a></li><li><a href="/karelia-labs/products/karelia-trash/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/karelia-trash/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Karelia Trash.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install">Install</a></li><li><a href="#what-goes-to-the-trash">What goes to the trash</a></li><li><a href="#restore-something">Restore something</a></li><li><a href="#delete-for-good">Delete for good</a></li><li><a href="#settings">Settings</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#dashboard-widget">Dashboard widget</a></li><li><a href="#command-line">Command line</a></li><li><a href="#good-to-know">Good to know</a></li><li><a href="#privacy">Privacy</a></li><li><a href="#remove-the-addon">Remove the addon</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Statamic 6.20 or later, on PHP 8.3 or later.</li>
+<li>Composer on the server or in your deployment.</li>
+<li>Statamic Core or Pro. Roles and permissions are a Pro feature, so on Core only the super admin uses the trash.</li>
+</ul>
+<h2 id="install">Install</h2>
+<ol>
+<li>In the folder where your site is installed, run:</li>
+</ol>
+<pre tabindex="0"><code class="language-bash">composer require karelialabs/statamic-trash
+</code></pre>
+<ol start="2">
+<li>Buy a licence on the Statamic Marketplace and attach it to your site in your statamic.com account, as with any paid addon. Local and staging copies of the site need no licence.</li>
+</ol>
+<p>That is all. <strong>Trash</strong> appears under <strong>Tools</strong> in the Control Panel, and from now on deletions are kept.</p>
+<h2 id="what-goes-to-the-trash">What goes to the trash</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Type</th><th scope="col">What is kept</th><th scope="col">Restored</th></tr></thead><tbody><tr><td data-label="Type">Entries</td><td data-label="What is kept">Every field, slug, date, publish state, blueprint, author, and the place in the page tree with its child pages</td><td data-label="Restored">In the same place in the tree. Child pages that Statamic moved up when the page was deleted go back under it</td></tr><tr><td data-label="Type">Localizations</td><td data-label="What is kept">Each translation of an entry, grouped with the original</td><td data-label="Restored">Restoring a translation brings back its original first</td></tr><tr><td data-label="Type">Taxonomy terms</td><td data-label="What is kept">The term in every site</td><td data-label="Restored">With its data in every site</td></tr><tr><td data-label="Type">Assets</td><td data-label="What is kept">The file itself and its alt text and other fields, up to a size you set (100 MB by default)</td><td data-label="Restored">In the same folder. If the file name is taken, as <code>name-restored.jpg</code></td></tr><tr><td data-label="Type">Global sets</td><td data-label="What is kept">The set and its values in every site</td><td data-label="Restored">With all its values</td></tr><tr><td data-label="Type">Form submissions</td><td data-label="What is kept">Every value the visitor entered</td><td data-label="Restored">In the same form, with its original date</td></tr><tr><td data-label="Type">Users (off by default)</td><td data-label="What is kept">Email, name, roles, groups and profile fields. Never passwords, passkeys or two-factor secrets</td><td data-label="Restored">Without a password. Send a reset from the user page</td></tr></tbody></table></div>
+<p>Items deleted together, such as an entry and its translations or every asset in a deleted folder, are grouped and can be restored in one go.</p>
+<h2 id="restore-something">Restore something</h2>
+<ol>
+<li>Open <strong>Tools → Trash</strong>.</li>
+<li>Find the item. Search by title, filter by type, or sort by when it was deleted.</li>
+<li>Click the title to see a preview: the fields, the image, the submission, who deleted it and when.</li>
+<li>Choose <strong>Restore</strong>. To restore many at once, select them and use the bulk action.</li>
+</ol>
+<p>Nothing is ever overwritten. If the slug has been taken by a new entry since, the restored one gets a number (<code>about-us-2</code>), and you are told. If the original was restored meanwhile, the trash says there is nothing to restore.</p>
+<h2 id="delete-for-good">Delete for good</h2>
+<ul>
+<li><strong>Delete Forever</strong> removes selected items now.</li>
+<li><strong>Empty Trash</strong> removes everything you are allowed to see.</li>
+<li>Items older than the retention period (30 days by default) are removed automatically, by Laravel&#39;s scheduler once a day and whenever the trash is opened. If your site does not run the scheduler, nothing breaks: the trash tidies itself on the next visit.</li>
+</ul>
+<h2 id="settings">Settings</h2>
+<p>Open <strong>Tools → Addons → Trash → Settings</strong>, or the <strong>Settings</strong> button on the trash page.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Setting</th><th scope="col">Default</th><th scope="col">What it does</th></tr></thead><tbody><tr><td data-label="Setting">Keep items for</td><td data-label="Default">30 days</td><td data-label="What it does">0 keeps items until the trash is emptied</td></tr><tr><td data-label="Setting">Types</td><td data-label="Default">Everything but users</td><td data-label="What it does">Switch types on or off</td></tr><tr><td data-label="Setting">Largest asset</td><td data-label="Default">100 MB</td><td data-label="What it does">Bigger files are deleted as usual, and only their details are kept</td></tr></tbody></table></div>
+<p>Settings saved in the Control Panel take priority over the config file. Developers can publish the config file for the rest:</p>
+<pre tabindex="0"><code class="language-bash">php artisan vendor:publish --tag=statamic-trash-config
+</code></pre>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Option</th><th scope="col">Default</th><th scope="col">What it does</th></tr></thead><tbody><tr><td data-label="Option"><code>enabled</code></td><td data-label="Default"><code>true</code></td><td data-label="What it does">Switch capturing off without uninstalling (<code>STATAMIC_TRASH_ENABLED</code>)</td></tr><tr><td data-label="Option"><code>disk</code></td><td data-label="Default"><code>local</code></td><td data-label="What it does">Filesystem disk for the trash (<code>STATAMIC_TRASH_DISK</code>). Use a shared disk, such as S3, on sites with more than one server</td></tr><tr><td data-label="Option"><code>path</code></td><td data-label="Default"><code>statamic-trash</code></td><td data-label="What it does">Folder on that disk</td></tr><tr><td data-label="Option"><code>exclude</code></td><td data-label="Default">none</td><td data-label="What it does">Collections, taxonomies, asset containers, global sets or forms never to keep</td></tr><tr><td data-label="Option"><code>on_failure</code></td><td data-label="Default"><code>allow</code></td><td data-label="What it does">If the trash cannot be written: <code>allow</code> deletes anyway and logs the error, <code>block</code> stops the deletion</td></tr></tbody></table></div>
+<h2 id="permissions">Permissions</h2>
+<p>Under <strong>Users → Roles</strong> there is a new <strong>Trash</strong> group.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Permission</th><th scope="col">Lets the user</th></tr></thead><tbody><tr><td data-label="Permission">View the trash</td><td data-label="Lets the user">Open the trash. They only see items they could view before, for example entries in collections they have view access to</td></tr><tr><td data-label="Permission">Restore items</td><td data-label="Lets the user">Restore. Also needs the right to create that kind of item, such as <code>create blog entries</code> or <code>configure globals</code></td></tr><tr><td data-label="Permission">Delete items forever and empty the trash</td><td data-label="Lets the user">Use <strong>Delete Forever</strong> and <strong>Empty Trash</strong></td></tr></tbody></table></div>
+<p>Super admins can do everything. Only a super admin can restore a super admin.</p>
+<h2 id="dashboard-widget">Dashboard widget</h2>
+<p>To show the latest deletions on the dashboard, add the widget to <code>config/statamic/cp.php</code>:</p>
+<pre tabindex="0"><code class="language-php">&#39;widgets&#39; =&gt; [
+    [&#39;type&#39; =&gt; &#39;trash&#39;, &#39;width&#39; =&gt; 50, &#39;limit&#39; =&gt; 5],
+],
+</code></pre>
+<h2 id="command-line">Command line</h2>
+<pre tabindex="0"><code class="language-bash">php please trash:list                 # what is in the trash
+php please trash:list --type=entry
+php please trash:restore {id} {id}    # restore one or more items
+php please trash:purge                # remove expired items
+php please trash:purge --all          # empty the trash
+php please trash:purge --rebuild-index
+</code></pre>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li>Only deletions made through Statamic are kept: the Control Panel, your own code or addons, or a collection being deleted. Files removed directly on disk or by git are not.</li>
+<li>The trash is not a revision history. That is Statamic Pro&#39;s job. The trash keeps the last saved version of what was deleted.</li>
+<li>A deleted collection, taxonomy, container or form is not itself restored. Its entries, terms, assets and submissions are kept, so create it again with the same handle and restore them.</li>
+<li>If you chose <strong>Detach localizations</strong> when deleting a translated entry, Statamic kept those translations as separate entries, so only the original is in the trash.</li>
+<li>It works with flat files and with the Eloquent driver.</li>
+</ul>
+<h2 id="privacy">Privacy</h2>
+<p>Trashed form submissions and users still hold personal data until they expire or are deleted. Use a short retention period, <strong>Delete Forever</strong> or the <code>exclude</code> option to match your privacy policy. The <a href="/karelia-labs/products/karelia-trash/privacy/">privacy policy</a> and the <a href="/karelia-labs/products/karelia-trash/security/">security page</a> list exactly what is stored.</p>
+<h2 id="remove-the-addon">Remove the addon</h2>
+<pre tabindex="0"><code class="language-bash">composer remove karelialabs/statamic-trash
+</code></pre>
+<p>The stored items stay in the trash folder (<code>storage/app/private/statamic-trash</code> by default) until you delete it.</p>
+<h2 id="need-help">Need help?</h2>
+<p>See the <a href="/karelia-labs/products/karelia-trash/support/">support page</a>, or write to the support address there with your Statamic version and the addon version.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install">Install</a></li><li><a href="#what-goes-to-the-trash">What goes to the trash</a></li><li><a href="#restore-something">Restore something</a></li><li><a href="#delete-for-good">Delete for good</a></li><li><a href="#settings">Settings</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#dashboard-widget">Dashboard widget</a></li><li><a href="#command-line">Command line</a></li><li><a href="#good-to-know">Good to know</a></li><li><a href="#privacy">Privacy</a></li><li><a href="#remove-the-addon">Remove the addon</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence, Jira, Flarum and Statamic, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li><li><a href="/karelia-labs/products/karelia-translate/">Karelia Translate</a></li><li><a href="/karelia-labs/products/karelia-trash/">Karelia Trash</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/">Karelia Spreadsheet</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="https://karelialabs.com/tools">All tools at karelialabs.com</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Flarum, Statamic and the other names on this site belong to their owners. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>
