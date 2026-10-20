@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karelia Conversions documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Karelia Conversions, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/karelia-conversions/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-8b71698148.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karelia Conversions documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Karelia Conversions, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/karelia-conversions/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/karelia-conversions/"><img class="logo" src="/karelia-labs/assets/products/karelia-conversions.svg" alt="" width="144" height="144"><span class="t">Karelia Conversions</span></a><span class="pband-sub">Server-side conversions for Meta, Google and TikTok ads</span></div></div><nav class="tabs" aria-label="Karelia Conversions"><div class="wrap"><ul><li><a href="/karelia-labs/products/karelia-conversions/">Overview</a></li><li><a href="/karelia-labs/products/karelia-conversions/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/karelia-conversions/support/">Support</a></li><li><a href="/karelia-labs/products/karelia-conversions/security/">Security</a></li><li><a href="/karelia-labs/products/karelia-conversions/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/karelia-conversions/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Karelia Conversions.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install">Install</a></li><li><a href="#setup">Setup</a></li><li><a href="#google-ads">Google Ads</a></li><li><a href="#events">Events</a></li><li><a href="#sending-conversions-from-your-own-code">Sending conversions from your own code</a></li><li><a href="#cargo-orders">Cargo orders</a></li><li><a href="#what-is-sent-and-what-is-kept">What is sent, and what is kept</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#good-to-know">Good to know</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Statamic 6.20 or later, on PHP 8.3 or later.</li>
+<li>Composer on the server or in your deployment.</li>
+<li>Accounts with the ad platforms you use: a Meta dataset (Pixel), a GA4 property, a TikTok pixel.</li>
+<li>Statamic Core or Pro. Cargo is optional, for orders.</li>
+</ul>
+<h2 id="install">Install</h2>
+<ol>
+<li>In the folder where your site is installed, run:</li>
+</ol>
+<pre tabindex="0"><code class="language-bash">composer require karelialabs/statamic-conversions
+</code></pre>
+<ol start="2">
+<li>Buy a licence on the Statamic Marketplace and attach it to your site in your statamic.com account, as with any paid addon. Local and staging copies of the site need no licence.</li>
+</ol>
+<p><strong>Conversions</strong> appears under <strong>Tools</strong> in the Control Panel. Then follow the setup below: tokens in <code>.env</code>, settings, the script tag and your cookie banner.</p>
+<h2 id="setup">Setup</h2>
+<h3 id="s-1-secrets-go-in-env">1. Secrets go in <code>.env</code></h3>
+<p>Control Panel settings are saved in <code>resources/addons</code> and usually end up in git, so access tokens never go there:</p>
+<pre tabindex="0"><code class="language-dotenv">KARELIA_CONVERSIONS_META_ACCESS_TOKEN=...
+KARELIA_CONVERSIONS_GA4_API_SECRET=...
+KARELIA_CONVERSIONS_TIKTOK_ACCESS_TOKEN=...
+</code></pre>
+<p>Where to get them:</p>
+<ul>
+<li><strong>Meta:</strong> Events Manager &gt; your dataset (Pixel) &gt; Settings &gt; Conversions API &gt; Generate access token.</li>
+<li><strong>GA4:</strong> Admin &gt; Data streams &gt; your web stream &gt; Measurement Protocol API secrets &gt; Create.</li>
+<li><strong>TikTok:</strong> TikTok Ads Manager &gt; Events &gt; Web events &gt; your pixel &gt; Settings &gt; Events API &gt; Generate access token.</li>
+</ul>
+<p>The IDs (Meta Pixel ID, GA4 Measurement ID, TikTok pixel code) can go in <code>.env</code> too (<code>KARELIA_CONVERSIONS_META_PIXEL_ID</code>, <code>KARELIA_CONVERSIONS_GA4_MEASUREMENT_ID</code>, <code>KARELIA_CONVERSIONS_TIKTOK_PIXEL_CODE</code>) or in the settings.</p>
+<h3 id="s-2-settings">2. Settings</h3>
+<p>Open <strong>Tools &gt; Addons &gt; Karelia Conversions</strong>:</p>
+<ul>
+<li><strong>Platforms:</strong> switch each platform on or off and add the IDs. Add a test event code while you test.</li>
+<li><strong>Events:</strong> add the forms that count as conversions, and what to send for each: Lead, Contact, Sign-up or a custom event, with an optional value and currency. Sign-ups and Cargo orders are on by default.</li>
+<li><strong>Consent:</strong> &quot;Only after consent&quot; (default) or &quot;Always&quot;.</li>
+</ul>
+<h3 id="s-3-add-the-script-to-your-layout">3. Add the script to your layout</h3>
+<pre tabindex="0"><code class="language-antlers">&lt;head&gt;
+    {{ conversions:script }}
+    ...
+&lt;/head&gt;
+</code></pre>
+<p>It keeps UTM tags and click IDs from the landing page in a first-party cookie, but only after consent. It works on statically cached pages too.</p>
+<h3 id="s-4-connect-your-cookie-banner">4. Connect your cookie banner</h3>
+<p>When the visitor accepts marketing cookies:</p>
+<pre tabindex="0"><code class="language-js">KareliaConversions.consent(true);
+</code></pre>
+<p>and when they withdraw consent:</p>
+<pre tabindex="0"><code class="language-js">KareliaConversions.consent(false);
+</code></pre>
+<p>If your banner already writes a cookie, you can use that instead: set <strong>Consent cookie</strong> to its name and <strong>Cookie contains</strong> to the text that means &quot;marketing accepted&quot; (for example <code>marketing</code>). For sites that need no consent, choose <strong>Always</strong>.</p>
+<h3 id="s-5-test">5. Test</h3>
+<ul>
+<li>Open <strong>Tools &gt; Conversions</strong> and press <strong>Send test event</strong> on each platform. Meta&#39;s and TikTok&#39;s test events show up under Test Events in their event managers; GA4 is checked against Google&#39;s validation endpoint.</li>
+<li>Or from the command line: <code>php please conversions:test</code> (or <code>conversions:test meta</code>).</li>
+<li>Then send one of your forms and watch it appear in the log.</li>
+</ul>
+<p>Remove the test event codes when you are done.</p>
+<h2 id="google-ads">Google Ads</h2>
+<p>Karelia Conversions sends to GA4. To count the conversions in Google Ads, link GA4 and Google Ads, mark the events (<code>generate_lead</code>, <code>sign_up</code>, <code>purchase</code>) as key events in GA4 (Admin &gt; Events), and import them in Google Ads (Goals &gt; Summary &gt; Create conversion action &gt; Google Analytics). See Google&#39;s help article &quot;Create conversions from Google Analytics events in Google Ads&quot;. Imports can take up to 24 hours.</p>
+<h2 id="events">Events</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Statamic</th><th scope="col">Meta</th><th scope="col">GA4</th><th scope="col">TikTok</th></tr></thead><tbody><tr><td data-label="Statamic">Form, sent as Lead</td><td data-label="Meta"><code>Lead</code></td><td data-label="GA4"><code>generate_lead</code></td><td data-label="TikTok"><code>Lead</code></td></tr><tr><td data-label="Statamic">Form, sent as Contact</td><td data-label="Meta"><code>Contact</code></td><td data-label="GA4"><code>generate_lead</code></td><td data-label="TikTok"><code>Contact</code></td></tr><tr><td data-label="Statamic">Registration</td><td data-label="Meta"><code>CompleteRegistration</code></td><td data-label="GA4"><code>sign_up</code></td><td data-label="TikTok"><code>CompleteRegistration</code></td></tr><tr><td data-label="Statamic">Paid Cargo order</td><td data-label="Meta"><code>Purchase</code></td><td data-label="GA4"><code>purchase</code></td><td data-label="TikTok"><code>Purchase</code></td></tr><tr><td data-label="Statamic">Custom event &quot;Book a demo&quot;</td><td data-label="Meta"><code>BookADemo</code></td><td data-label="GA4"><code>book_a_demo</code></td><td data-label="TikTok"><code>BookADemo</code></td></tr></tbody></table></div>
+<p>Every conversion gets one event ID that is the same on all platforms.</p>
+<h2 id="sending-conversions-from-your-own-code">Sending conversions from your own code</h2>
+<pre tabindex="0"><code class="language-php">use KareliaLabs\Conversions\Conversion;
+use KareliaLabs\Conversions\Conversions;
+
+app(Conversions::class)-&gt;track(
+    Conversion::make(&#39;lead&#39;)
+        -&gt;fromRequest(request())
+        -&gt;user([&#39;email&#39; =&gt; $email, &#39;phone&#39; =&gt; $phone, &#39;first_name&#39; =&gt; $first, &#39;last_name&#39; =&gt; $last])
+        -&gt;value(120, &#39;EUR&#39;)
+        -&gt;source(&#39;booking&#39;, &#39;demo&#39;, $booking-&gt;id, &#39;Demo booking&#39;)
+);
+</code></pre>
+<p><code>fromRequest()</code> fills in the page, IP address, browser, click IDs and consent. Events are <code>lead</code>, <code>contact</code>, <code>sign_up</code>, <code>purchase</code> and <code>custom</code> (with a name: <code>Conversion::make(&#39;custom&#39;, &#39;Book a demo&#39;)</code>).</p>
+<p>To decide consent in code instead of with a cookie:</p>
+<pre tabindex="0"><code class="language-php">\KareliaLabs\Conversions\Consent::resolveUsing(fn ($request) =&gt; $request-&gt;user()?-&gt;get(&#39;marketing_consent&#39;) === true);
+</code></pre>
+<h2 id="cargo-orders">Cargo orders</h2>
+<p>Payment is often confirmed by a webhook from the payment provider, so the request that marks an order paid is not the shopper&#39;s. Karelia Conversions therefore keeps the shopper&#39;s details (IP address, browser, click IDs, consent) when the order is created during checkout, and uses them when the order is paid. Amounts are converted from Cargo&#39;s minor units, and the currency comes from the site.</p>
+<h2 id="what-is-sent-and-what-is-kept">What is sent, and what is kept</h2>
+<ul>
+<li><strong>Sent:</strong> the event, its time and ID, the page address, the visitor&#39;s IP address and browser, the click IDs and first-party cookies the platforms set themselves (<code>_fbp</code>, <code>_fbc</code>, <code>_ga</code>, <code>_ttp</code>), value, currency and products, and email, phone, name, city, postcode and country <strong>hashed with SHA-256</strong>.</li>
+<li><strong>Not sent:</strong> anything for visitors who have not given consent (in &quot;Only after consent&quot; mode).</li>
+<li><strong>Kept on your server:</strong> a log line per conversion in <code>storage/statamic/karelia-conversions</code>, with the event, source, value, UTM source and campaign, click ID type and each platform&#39;s answer. No names, emails, phone numbers or IP addresses. Lines older than 30 days are deleted (configurable).</li>
+<li><strong>Never sent to Karelia Labs.</strong> The addon has no telemetry and no licence server.</li>
+</ul>
+<p>You remain the data controller for what you send to Meta, Google and TikTok. Mention it in your privacy policy.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Publish the config file to change the defaults:</p>
+<pre tabindex="0"><code class="language-bash">php artisan vendor:publish --tag=statamic-conversions-config
+</code></pre>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Setting</th><th scope="col">Default</th><th scope="col">What it does</th></tr></thead><tbody><tr><td data-label="Setting"><code>KARELIA_CONVERSIONS_ENABLED</code></td><td data-label="Default"><code>true</code></td><td data-label="What it does">Switch all sending off, e.g. on staging</td></tr><tr><td data-label="Setting"><code>KARELIA_CONVERSIONS_QUEUE</code></td><td data-label="Default">none</td><td data-label="What it does">Queue connection. Without one, conversions are sent right after the response</td></tr><tr><td data-label="Setting"><code>KARELIA_CONVERSIONS_CONSENT</code></td><td data-label="Default"><code>cookie</code></td><td data-label="What it does"><code>cookie</code> or <code>always</code></td></tr><tr><td data-label="Setting"><code>KARELIA_CONVERSIONS_CURRENCY</code></td><td data-label="Default"><code>USD</code></td><td data-label="What it does">Default currency</td></tr><tr><td data-label="Setting"><code>KARELIA_CONVERSIONS_GA4_ENDPOINT</code></td><td data-label="Default"><code>https://www.google-analytics.com</code></td><td data-label="What it does">Use <code>https://region1.google-analytics.com</code> to keep collection in the EU</td></tr><tr><td data-label="Setting"><code>KARELIA_CONVERSIONS_META_API_VERSION</code></td><td data-label="Default"><code>v26.0</code></td><td data-label="What it does">Graph API version</td></tr><tr><td data-label="Setting"><code>log_days</code></td><td data-label="Default"><code>30</code></td><td data-label="What it does">How long the log is kept</td></tr></tbody></table></div>
+<h2 id="permissions">Permissions</h2>
+<ul>
+<li><strong>View conversions:</strong> see the log and the totals.</li>
+<li><strong>Send test events:</strong> use the test buttons.</li>
+</ul>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li>Karelia Conversions does not add the Meta Pixel, the GA4 tag or the TikTok pixel to your pages. If a form also fires a <code>Lead</code> in the browser Pixel, Meta counts both; keep form leads on the server only.</li>
+<li>GA4 ties the conversion to the visitor&#39;s session through the <code>_ga</code> cookie. Without the GA4 tag on your site, server-side events still arrive, but as separate users.</li>
+<li>The Measurement Protocol never reports errors on the live endpoint; use the test button (validation endpoint) to check your setup.</li>
+</ul>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install">Install</a></li><li><a href="#setup">Setup</a></li><li><a href="#google-ads">Google Ads</a></li><li><a href="#events">Events</a></li><li><a href="#sending-conversions-from-your-own-code">Sending conversions from your own code</a></li><li><a href="#cargo-orders">Cargo orders</a></li><li><a href="#what-is-sent-and-what-is-kept">What is sent, and what is kept</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#good-to-know">Good to know</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence, Jira, Flarum and Statamic, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li><li><a href="/karelia-labs/products/karelia-translate/">Karelia Translate</a></li><li><a href="/karelia-labs/products/karelia-trash/">Karelia Trash</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/">Karelia Spreadsheet</a></li><li><a href="/karelia-labs/products/karelia-conversions/">Karelia Conversions</a></li><li><a href="/karelia-labs/products/karelia-tickets/">Karelia Tickets</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="https://karelialabs.com/tools">All tools at karelialabs.com</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Flarum, Statamic and the other names on this site belong to their owners. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karelia Tickets documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Karelia Tickets, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/karelia-tickets/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-8b71698148.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karelia Tickets documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Karelia Tickets, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/karelia-tickets/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/karelia-tickets/"><img class="logo" src="/karelia-labs/assets/products/karelia-tickets.svg" alt="" width="144" height="144"><span class="t">Karelia Tickets</span></a><span class="pband-sub">Sell event tickets from Statamic with Stripe</span></div></div><nav class="tabs" aria-label="Karelia Tickets"><div class="wrap"><ul><li><a href="/karelia-labs/products/karelia-tickets/">Overview</a></li><li><a href="/karelia-labs/products/karelia-tickets/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/karelia-tickets/support/">Support</a></li><li><a href="/karelia-labs/products/karelia-tickets/security/">Security</a></li><li><a href="/karelia-labs/products/karelia-tickets/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/karelia-tickets/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Karelia Tickets.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install">Install</a></li><li><a href="#setup">Setup</a></li><li><a href="#how-a-purchase-works">How a purchase works</a></li><li><a href="#at-the-door">At the door</a></li><li><a href="#refunds-and-free-tickets">Refunds and free tickets</a></li><li><a href="#where-orders-are-kept">Where orders are kept</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#good-to-know">Good to know</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Statamic 6.20 or later, on PHP 8.3 or later.</li>
+<li>Composer on the server or in your deployment.</li>
+<li>A Stripe account for paid tickets. Free events work without one.</li>
+<li>Email set up in Laravel (<code>MAIL_MAILER</code>), so the tickets can be sent.</li>
+</ul>
+<h2 id="install">Install</h2>
+<ol>
+<li>In the folder where your site is installed, run:</li>
+</ol>
+<pre tabindex="0"><code class="language-bash">composer require karelialabs/statamic-tickets
+</code></pre>
+<ol start="2">
+<li>Buy a licence on the Statamic Marketplace and attach it to your site in your statamic.com account, as with any paid addon. Local and staging copies of the site need no licence.</li>
+</ol>
+<p><strong>Tickets</strong> and <strong>Check-in</strong> appear under <strong>Tools</strong> in the Control Panel. Then follow the setup below: Stripe keys, the webhook, your events and the ticket form.</p>
+<h2 id="setup">Setup</h2>
+<h3 id="s-1-stripe-keys-go-in-env">1. Stripe keys go in <code>.env</code></h3>
+<pre tabindex="0"><code class="language-env">KARELIA_TICKETS_STRIPE_SECRET=sk_live_...
+KARELIA_TICKETS_STRIPE_WEBHOOK_SECRET=whsec_...
+KARELIA_TICKETS_CURRENCY=EUR
+</code></pre>
+<p>Use a restricted key if you like. It needs write access to Checkout Sessions and Refunds. With an <code>sk_test_</code> key everything runs in Stripe&#39;s test mode and the Control Panel says so.</p>
+<h3 id="s-2-the-stripe-webhook">2. The Stripe webhook</h3>
+<p>The webhook lets Stripe tell your site about a payment even when the buyer closes the tab before coming back. In the Stripe Dashboard, go to <strong>Developers → Webhooks → Add endpoint</strong>:</p>
+<ul>
+<li><strong>Endpoint URL</strong>: <code>https://your-site.com/!/statamic-tickets/webhook</code> (shown under <strong>Tools → Tickets</strong>)</li>
+<li><strong>Events</strong>: <code>checkout.session.completed</code>, <code>checkout.session.async_payment_succeeded</code>, <code>checkout.session.async_payment_failed</code>, <code>checkout.session.expired</code>, <code>charge.refunded</code></li>
+</ul>
+<p>Copy the endpoint&#39;s signing secret into <code>KARELIA_TICKETS_STRIPE_WEBHOOK_SECRET</code>. Events without a valid signature are refused.</p>
+<h3 id="s-3-your-events">3. Your events</h3>
+<p>Karelia Tickets adds a <strong>Tickets</strong> tab to the entries of your events collection, <code>events</code> by default. Choose another collection, the date field and the currency under <strong>Tools → Addons → Karelia Tickets → Settings</strong>.</p>
+<p>Open an event, switch on <strong>Sell tickets</strong> and add ticket types:</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Field</th><th scope="col"></th></tr></thead><tbody><tr><td data-label="Field">Name</td><td data-label="">e.g. Early bird, Standard, Student</td></tr><tr><td data-label="Field">Price</td><td data-label=""><code>0</code> for free tickets</td></tr><tr><td data-label="Field">Tickets available</td><td data-label="">Leave empty for no limit</td></tr><tr><td data-label="Field">Sales end</td><td data-label="">Optional date and time</td></tr><tr><td data-label="Field">Most per order</td><td data-label="">Default 10</td></tr><tr><td data-label="Field">Description</td><td data-label="">Shown under the name</td></tr></tbody></table></div>
+<p>The event&#39;s date comes from its <code>start_date</code> field (or the field you choose), or the entry date.</p>
+<h3 id="s-4-the-ticket-form">4. The ticket form</h3>
+<p>Put the tag in your event template:</p>
+<pre tabindex="0"><code class="language-antlers">{{ tickets:form }}
+</code></pre>
+<p>It shows the ticket types with prices, what is left, a name and email field and the total, and sends the buyer to Stripe. It follows your site&#39;s font and colours. Set <code>--kt-accent</code> to brand the button:</p>
+<pre tabindex="0"><code class="language-css">.kt { --kt-accent: #0f766e; --kt-radius: 0.5rem; }
+</code></pre>
+<p>For your own markup, use the tag as a pair. The form, the CSRF token and the event are added for you:</p>
+<pre tabindex="0"><code class="language-antlers">{{ tickets:form class=&quot;tickets&quot; }}
+    {{ if has_errors }}
+        &lt;ul class=&quot;errors&quot;&gt;{{ errors }}&lt;li&gt;{{ value }}&lt;/li&gt;{{ /errors }}&lt;/ul&gt;
+    {{ /if }}
+
+    {{ types }}
+        &lt;label&gt;
+            {{ name }} – {{ price_formatted }}
+            {{ if sold_out }}Sold out{{ elseif few_left }}Only {{ left }} left{{ /if }}
+            {{ if on_sale }}
+                &lt;select name=&quot;{{ input_name }}&quot;&gt;
+                    {{ options }}&lt;option value=&quot;{{ value }}&quot;&gt;{{ value }}&lt;/option&gt;{{ /options }}
+                &lt;/select&gt;
+            {{ /if }}
+        &lt;/label&gt;
+    {{ /types }}
+
+    &lt;input name=&quot;name&quot; value=&quot;{{ old_name }}&quot; required&gt;
+    &lt;input type=&quot;email&quot; name=&quot;email&quot; value=&quot;{{ old_email }}&quot; required&gt;
+    &lt;button&gt;Get tickets&lt;/button&gt;
+{{ /tickets:form }}
+</code></pre>
+<p>Variables inside the pair: <code>title</code>, <code>date</code>, <code>types</code>, <code>selling</code>, <code>sold_out</code>, <code>on_sale</code>, <code>any_paid</code>, <code>currency</code>, <code>errors</code>, <code>has_errors</code>, <code>message</code>, <code>old_name</code>, <code>old_email</code>. Each type has <code>id</code>, <code>name</code>, <code>description</code>, <code>price</code>, <code>price_formatted</code>, <code>free</code>, <code>left</code>, <code>few_left</code>, <code>sold_out</code>, <code>on_sale</code>, <code>sales_ended</code>, <code>sales_end</code>, <code>max</code>, <code>options</code>, <code>input_name</code>.</p>
+<p>Other tags: <code>{{ tickets:sold_out }}</code>, <code>{{ tickets:on_sale }}</code> and <code>{{ tickets:types }}...{{ /tickets:types }}</code>. All of them use the current entry, or <code>event=&quot;entry-id&quot;</code>.</p>
+<p>To change the ready-made form, the ticket page or the email, publish the views:</p>
+<pre tabindex="0"><code class="language-bash">php artisan vendor:publish --tag=statamic-tickets-views
+</code></pre>
+<h2 id="how-a-purchase-works">How a purchase works</h2>
+<ol>
+<li>The buyer chooses tickets and enters their name and email. The tickets are held for 30 minutes.</li>
+<li>They pay on Stripe Checkout.</li>
+<li>Stripe sends them back to their ticket page and calls the webhook. Whichever comes first issues the tickets; the other changes nothing.</li>
+<li>They get an email with the ticket codes, a link to the ticket page with the QR codes, and the event as a calendar file.</li>
+</ol>
+<p>If they go back from Stripe without paying, the order is cancelled, the Stripe session is closed and the tickets go back on sale. Free tickets skip Stripe and are issued straight away.</p>
+<h2 id="at-the-door">At the door</h2>
+<p>Open <strong>Tools → Check-in</strong> on a phone, choose the event and press <strong>Scan with camera</strong>, or type the code. Codes are 8 letters and digits without look-alikes (no 0/O, 1/I/L), and dashes, spaces and lower case are fine. Each ticket gets in once; <strong>Undo</strong> reverses a check-in. Several people can check in at the same time.</p>
+<p>Give door staff a role with only the <strong>Check in attendees</strong> permission: they see the check-in page and the name on each scanned ticket, not your sales or the attendee list.</p>
+<h2 id="refunds-and-free-tickets">Refunds and free tickets</h2>
+<p>On an event&#39;s page under <strong>Tools → Tickets</strong>, each order has a menu:</p>
+<ul>
+<li><strong>Refund order</strong> refunds the full amount through Stripe and the tickets stop working. Refunds made in the Stripe Dashboard are picked up by the webhook too. A partial refund keeps the tickets valid.</li>
+<li><strong>Email tickets again</strong> resends the confirmation.</li>
+<li><strong>Cancel tickets</strong> for free orders.</li>
+</ul>
+<p><strong>Add free tickets</strong> issues tickets for guests, press or staff without payment, optionally by email. They count towards the number available.</p>
+<h2 id="where-orders-are-kept">Where orders are kept</h2>
+<p>Orders are JSON files in <code>storage/statamic/karelia-tickets/orders</code>, one per order, outside git. They hold the buyer&#39;s name and email address, the tickets and the Stripe payment ID. No card details ever reach your site. Back up the storage folder with the rest of your site.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Publish the config file to change the defaults:</p>
+<pre tabindex="0"><code class="language-bash">php artisan vendor:publish --tag=statamic-tickets-config
+</code></pre>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Key</th><th scope="col">Default</th><th scope="col"></th></tr></thead><tbody><tr><td data-label="Key"><code>stripe.secret</code></td><td data-label="Default"><code>KARELIA_TICKETS_STRIPE_SECRET</code></td><td data-label="">Stripe secret or restricted key</td></tr><tr><td data-label="Key"><code>stripe.webhook_secret</code></td><td data-label="Default"><code>KARELIA_TICKETS_STRIPE_WEBHOOK_SECRET</code></td><td data-label="">Signing secret of the webhook endpoint</td></tr><tr><td data-label="Key"><code>stripe.version</code></td><td data-label="Default"><code>2026-09-30.endive</code></td><td data-label="">Stripe API version</td></tr><tr><td data-label="Key"><code>collections</code></td><td data-label="Default"><code>[&#39;events&#39;]</code></td><td data-label="">Collections that sell tickets</td></tr><tr><td data-label="Key"><code>date_field</code></td><td data-label="Default"><code>start_date</code></td><td data-label="">Field with the event&#39;s start</td></tr><tr><td data-label="Key"><code>currency</code></td><td data-label="Default"><code>KARELIA_TICKETS_CURRENCY</code>, <code>USD</code></td><td data-label="">Must be a currency Stripe supports for your account</td></tr><tr><td data-label="Key"><code>reservation_minutes</code></td><td data-label="Default"><code>30</code></td><td data-label="">How long tickets are held during checkout (30 to 1440)</td></tr><tr><td data-label="Key"><code>path</code></td><td data-label="Default"><code>storage/statamic/karelia-tickets</code></td><td data-label="">Where orders are stored</td></tr></tbody></table></div>
+<h2 id="permissions">Permissions</h2>
+<ul>
+<li><strong>View tickets and orders</strong>: sales, orders and attendee lists<ul>
+<li><strong>Refund, cancel and resend orders, and add free tickets</strong></li>
+</ul>
+</li>
+<li><strong>Check in attendees</strong>: the check-in page only</li>
+</ul>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li>One currency per site. Changing it later does not convert old orders.</li>
+<li>The ticket page link in the email works without logging in. Anyone with the link can see the tickets, like a paper ticket.</li>
+<li>The price you set is what the buyer pays. Karelia Tickets does not add tax on top.</li>
+<li>Camera scanning needs HTTPS (or localhost) and permission for the camera. Typing the code always works.</li>
+<li>On sites with several servers, use a shared cache store (Redis, database) so the locks that stop overselling are shared too.</li>
+</ul>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#install">Install</a></li><li><a href="#setup">Setup</a></li><li><a href="#how-a-purchase-works">How a purchase works</a></li><li><a href="#at-the-door">At the door</a></li><li><a href="#refunds-and-free-tickets">Refunds and free tickets</a></li><li><a href="#where-orders-are-kept">Where orders are kept</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#good-to-know">Good to know</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence, Jira, Flarum and Statamic, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li><li><a href="/karelia-labs/products/karelia-translate/">Karelia Translate</a></li><li><a href="/karelia-labs/products/karelia-trash/">Karelia Trash</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/">Karelia Spreadsheet</a></li><li><a href="/karelia-labs/products/karelia-conversions/">Karelia Conversions</a></li><li><a href="/karelia-labs/products/karelia-tickets/">Karelia Tickets</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="https://karelialabs.com/tools">All tools at karelialabs.com</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Flarum, Statamic and the other names on this site belong to their owners. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>
