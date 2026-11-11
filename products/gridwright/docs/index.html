@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gridwright documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Gridwright, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/gridwright/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-8b71698148.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gridwright documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Gridwright, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/gridwright/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/gridwright/"><img class="logo" src="/karelia-labs/assets/products/gridwright.svg" alt="" width="144" height="144"><span class="t">Gridwright</span></a><span class="pband-sub">Editable table fields for Jira</span></div></div><nav class="tabs" aria-label="Gridwright"><div class="wrap"><ul><li><a href="/karelia-labs/products/gridwright/">Overview</a></li><li><a href="/karelia-labs/products/gridwright/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/gridwright/support/">Support</a></li><li><a href="/karelia-labs/products/gridwright/security/">Security</a></li><li><a href="/karelia-labs/products/gridwright/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/gridwright/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Gridwright.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#add-a-table-field-in-five-steps">Add a table field in five steps</a></li><li><a href="#columns">Columns</a></li><li><a href="#calculated-columns">Calculated columns</a></li><li><a href="#editing-a-table">Editing a table</a></li><li><a href="#paste-from-excel">Paste from Excel</a></li><li><a href="#copy-as-csv">Copy as CSV</a></li><li><a href="#lists-search-and-the-portal">Lists, search and the portal</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Jira Cloud (Jira, or Jira Service Management).</li>
+<li>Gridwright installed on your site. Installing an app needs a Jira site administrator.</li>
+<li>A Jira administrator to create the table fields and set up their columns.</li>
+</ul>
+<p>Gridwright requests no permissions. A table is the value of its own field, and Jira hands it to the app when someone views or edits the field.</p>
+<h2 id="add-a-table-field-in-five-steps">Add a table field in five steps</h2>
+<ol>
+<li>As a Jira administrator, open the field settings of Jira (<strong>Work items</strong>, <strong>Fields</strong>) and choose <strong>Create new field</strong>. Choose the type <strong>Table grid (Gridwright)</strong> and name the field, for example <strong>Bill of materials</strong>.</li>
+<li>Open the field, then <strong>Contexts and default value</strong>, and choose <strong>Configure</strong> for the context. The Gridwright setup opens.</li>
+<li>Under <strong>Start from a template…</strong> choose a template, for example <strong>Bill of materials</strong>, and select <strong>Use template</strong>. Or build your own columns with <strong>Add column</strong>.</li>
+<li>Select <strong>Save configuration</strong>. The message says that issues in this context use these columns now.</li>
+<li>Add the field to the create, edit and view screens of your projects, and to transition screens if you want it there.</li>
+</ol>
+<h2 id="columns">Columns</h2>
+<p>Every field context has its own columns, up to 20. Give each column a name and a type:</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Type</th><th scope="col">What it holds</th></tr></thead><tbody><tr><td data-label="Type">Text</td><td data-label="What it holds">Any text, up to 1,000 characters</td></tr><tr><td data-label="Type">Number</td><td data-label="What it holds">A number with a set number of decimals and an optional prefix or suffix, such as $ or h</td></tr><tr><td data-label="Type">Date</td><td data-label="What it holds">A date, picked from a calendar. Pasted dates can be written 2026-11-20 or 20.11.2026</td></tr><tr><td data-label="Type">Select list</td><td data-label="What it holds">One of a list of options, up to 50</td></tr><tr><td data-label="Type">Checkbox</td><td data-label="What it holds">Ticked or not</td></tr><tr><td data-label="Type">Calculated</td><td data-label="What it holds">A formula over other number columns, worked out for every row</td></tr></tbody></table></div>
+<ul>
+<li>Tick <strong>Required</strong> for cells that must be filled in, and <strong>Sum</strong> for number and calculated columns that should be added up.</li>
+<li><strong>Settings</strong> opens the details of a column: the options of a select list, the formula, the decimals, the prefix and the suffix.</li>
+<li><strong>Up</strong>, <strong>Down</strong> and <strong>Remove</strong> change the order and remove columns.</li>
+<li>Under <strong>Rows</strong>, set <strong>Most rows per issue</strong> (up to 200) and choose <strong>Show a totals row for columns with Sum</strong>.</li>
+<li><strong>Preview</strong> shows two example rows with the current setup.</li>
+</ul>
+<p>Problems are listed under <strong>Fix these before saving</strong>, and <strong>Save configuration</strong> stays unavailable until they are fixed. Existing values stay with their column when you rename or reorder columns.</p>
+<h3 id="templates">Templates</h3>
+<p>Six templates fill in a whole setup that you can then change:</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Template</th><th scope="col">Columns</th></tr></thead><tbody><tr><td data-label="Template">Bill of materials</td><td data-label="Columns">Part, Qty, Unit price and Line total (<code>{Qty} * {Unit price}</code>), with totals</td></tr><tr><td data-label="Template">Cost breakdown</td><td data-label="Columns">Cost item, Category, Estimate, Actual and Difference (<code>{Actual} - {Estimate}</code>), with totals</td></tr><tr><td data-label="Template">Test steps</td><td data-label="Columns">Step, Expected result, Actual result and Status (Not run, Passed, Failed, Blocked)</td></tr><tr><td data-label="Template">Risk list</td><td data-label="Columns">Risk, Likelihood, Impact, Score (<code>{Likelihood} * {Impact}</code>) and Mitigation</td></tr><tr><td data-label="Template">Action items</td><td data-label="Columns">Action, Owner, Due and Done</td></tr><tr><td data-label="Template">Time estimate</td><td data-label="Columns">Task, Hours, Rate and Cost (<code>round({Hours} * {Rate}, 2)</code>), with totals</td></tr></tbody></table></div>
+<h2 id="calculated-columns">Calculated columns</h2>
+<p>Write the formula with the names of other number columns in braces:</p>
+<pre tabindex="0"><code>{Qty} * {Unit price}
+round({Hours} * {Rate}, 2)
+max({Estimate}, {Actual}) - min({Estimate}, {Actual})
+</code></pre>
+<ul>
+<li>Operators: <code>+ - * / %</code> and parentheses.</li>
+<li>Functions: <code>round(x)</code> or <code>round(x, digits)</code>, <code>min</code>, <code>max</code>, <code>abs</code> and <code>sum</code>.</li>
+<li>A formula can use other calculated columns. A formula that depends on itself is refused.</li>
+<li>An empty cell makes the result empty, except inside <code>sum()</code>, which counts it as 0. Division by zero gives an empty result.</li>
+<li>A formula can have up to 300 characters. It is checked when you save the setup, so a typo never reaches an issue.</li>
+</ul>
+<p>Formulas are read by a small calculator of their own and are never run as code.</p>
+<h2 id="editing-a-table">Editing a table</h2>
+<p>On the issue, select the table to edit it, and save with Jira&#39;s own buttons. On the create screen and on transition screens the table is part of the form, and it is saved with the issue or the transition.</p>
+<ul>
+<li><strong>Add row</strong> adds a row and <strong>Remove</strong> removes one. Drag rows to change their order.</li>
+<li>Numbers are read the way people type them: 1234.5, 1,234.5, 1 234,5 or $ 40.</li>
+<li>A value that cannot be read stays in its cell and is marked, and the table is not saved until it is fixed.</li>
+<li>Calculated cells and the totals row update as you type.</li>
+<li>The line under the table shows how many rows there are and how many the field allows.</li>
+</ul>
+<h2 id="paste-from-excel">Paste from Excel</h2>
+<p>Select <strong>Paste from Excel…</strong> and paste rows copied from Excel, Google Sheets or a CSV file (tab, comma or semicolon separated).</p>
+<ul>
+<li>When the first line names the columns, cells are matched to the columns by name, in any order. Otherwise they are taken in column order.</li>
+<li>The preview says how many rows were found and how the columns were matched, and lists problems by line, for example a text in a number column.</li>
+<li>Choose <strong>Add N rows</strong> to add the rows, or <strong>Replace all rows</strong>.</li>
+</ul>
+<h2 id="copy-as-csv">Copy as CSV</h2>
+<p><strong>Copy as CSV…</strong> shows the table as CSV text. Select all, copy and paste it into a spreadsheet. It is text to copy, not a file download.</p>
+<h2 id="lists-search-and-the-portal">Lists, search and the portal</h2>
+<ul>
+<li>Issue lists, notifications and Jira&#39;s own CSV export show a short summary of the table, such as &quot;4 rows · Qty: 38 · Line total: $46.12&quot;.</li>
+<li>Search by the number of rows with JQL: <code>&quot;Bill of materials&quot;.rows &gt; 5</code>.</li>
+<li>Search for text in any cell with <code>~</code>: <code>&quot;Bill of materials&quot; ~ &quot;bolt&quot;</code>.</li>
+<li>In the Jira Service Management portal, customers see table fields read-only.</li>
+</ul>
+<h2 id="limits">Limits</h2>
+<ul>
+<li>Up to 20 columns per field context and 200 rows per table.</li>
+<li>About 30,000 characters of data per table. Very long texts reach this limit before the row limit, and the app says so before saving.</li>
+<li>1,000 characters per cell, 50 options per select list and 300 characters per formula.</li>
+<li>No user picker column in this version.</li>
+<li>Table fields cannot be bulk edited, and customers cannot edit them in the portal.</li>
+<li>Copy as CSV gives text to paste, not a file.</li>
+<li>Without an active licence, tables stay visible but cannot be edited.</li>
+</ul>
+<h2 id="permissions-and-data">Permissions and data</h2>
+<p>Gridwright requests no permissions and stores nothing of its own. The rows are the value of the Jira field and the columns are the configuration of the field context, both kept by Jira. See <a href="/karelia-labs/products/gridwright/security/">Security</a> and the <a href="/karelia-labs/products/gridwright/privacy/">Privacy Policy</a>.</p>
+<h2 id="need-help">Need help?</h2>
+<p>See the <a href="/karelia-labs/products/gridwright/support/">support page</a> for how to reach us, what to include and answers to common questions.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#add-a-table-field-in-five-steps">Add a table field in five steps</a></li><li><a href="#columns">Columns</a></li><li><a href="#calculated-columns">Calculated columns</a></li><li><a href="#editing-a-table">Editing a table</a></li><li><a href="#paste-from-excel">Paste from Excel</a></li><li><a href="#copy-as-csv">Copy as CSV</a></li><li><a href="#lists-search-and-the-portal">Lists, search and the portal</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence, Jira, Flarum and Statamic, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li><li><a href="/karelia-labs/products/gridwright/">Gridwright</a></li><li><a href="/karelia-labs/products/lexiwright/">Lexiwright</a></li><li><a href="/karelia-labs/products/brandwright/">Brandwright</a></li><li><a href="/karelia-labs/products/karelia-translate/">Karelia Translate</a></li><li><a href="/karelia-labs/products/karelia-trash/">Karelia Trash</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/">Karelia Spreadsheet</a></li><li><a href="/karelia-labs/products/karelia-conversions/">Karelia Conversions</a></li><li><a href="/karelia-labs/products/karelia-tickets/">Karelia Tickets</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="/karelia-labs/buy-by-invoice/">Buy by invoice</a></li><li><a href="https://karelialabs.gumroad.com/subscribe">Deals by email</a></li><li><a href="https://karelialabs.com/tools">All tools at karelialabs.com</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Flarum, Statamic and the other names on this site belong to their owners. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>

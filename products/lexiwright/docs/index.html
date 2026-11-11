@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lexiwright documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Lexiwright, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/lexiwright/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-8b71698148.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lexiwright documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Lexiwright, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/lexiwright/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/lexiwright/"><img class="logo" src="/karelia-labs/assets/products/lexiwright.svg" alt="" width="144" height="144"><span class="t">Lexiwright</span></a><span class="pband-sub">Glossary and terminology for Confluence</span></div></div><nav class="tabs" aria-label="Lexiwright"><div class="wrap"><ul><li><a href="/karelia-labs/products/lexiwright/">Overview</a></li><li><a href="/karelia-labs/products/lexiwright/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/lexiwright/support/">Support</a></li><li><a href="/karelia-labs/products/lexiwright/security/">Security</a></li><li><a href="/karelia-labs/products/lexiwright/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/lexiwright/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Lexiwright.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#start-a-glossary-in-four-steps">Start a glossary in four steps</a></li><li><a href="#see-the-terms-a-page-uses">See the terms a page uses</a></li><li><a href="#link-glossary-terms-in-a-page">Link glossary terms in a page</a></li><li><a href="#macros">Macros</a></li><li><a href="#the-glossary">The glossary</a></li><li><a href="#settings-for-administrators">Settings for administrators</a></li><li><a href="#rovo-optional">Rovo (optional)</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Confluence Cloud.</li>
+<li>Lexiwright installed on your site. Installing an app needs a Confluence site administrator.</li>
+</ul>
+<p>Nothing has to be installed in anyone&#39;s browser. Lexiwright reads and changes pages as the person using it, so Confluence permissions apply. The first time an app is used, Atlassian shows a consent screen. Approve it once.</p>
+<h2 id="start-a-glossary-in-four-steps">Start a glossary in four steps</h2>
+<ol>
+<li>Open <strong>Apps</strong> and choose <strong>Glossary</strong>.</li>
+<li>Select <strong>Add a term</strong>. Fill in the <strong>Term</strong>, its <strong>Synonyms and abbreviations</strong> (separated by commas) and the <strong>Definition</strong>, then select <strong>Save term</strong>.</li>
+<li>To bring in a whole list at once, use the import on the settings page (see <a href="#settings-for-administrators">Settings</a>).</li>
+<li>Open any page. Its byline shows <strong>Glossary</strong>, with the number of glossary terms the page uses.</li>
+</ol>
+<h2 id="see-the-terms-a-page-uses">See the terms a page uses</h2>
+<p>Every page shows <strong>Glossary</strong> in its byline. When the page uses glossary terms, it says how many, for example <strong>Glossary: 9 terms</strong>.</p>
+<ul>
+<li>Select it to list the terms with their definitions. Deprecated terms come first, with the term to use instead.</li>
+<li><strong>Open the glossary</strong> takes you to the whole glossary.</li>
+</ul>
+<p>Terms are matched as whole words:</p>
+<ul>
+<li>A term matches its synonyms and abbreviations too, and a one-word term also matches its plural (invoice, invoices).</li>
+<li>Between the words of a multi-word term, a space, a hyphen or a slash all match.</li>
+<li>Where terms overlap, the longest one wins.</li>
+<li>A term marked <strong>Match exact upper and lower case</strong> matches only with the same case, so that API is not confused with api.</li>
+<li>Names and synonyms are unique across the glossary, so a word never points to two definitions.</li>
+</ul>
+<p>Suggested terms are not matched until an editor approves them.</p>
+<h2 id="link-glossary-terms-in-a-page">Link glossary terms in a page</h2>
+<ol>
+<li>Open the page, open the ••• menu and choose <strong>Link glossary terms…</strong>.</li>
+<li>The dialog lists the glossary terms found in the page and how often each occurs. Approved terms are ticked; deprecated terms are not. Terms that already have a glossary link in the page are marked <strong>Linked</strong>.</li>
+<li>Select <strong>Link N terms</strong>.</li>
+</ol>
+<p>The first time each chosen term appears in the body text, it becomes a glossary link. Click it to open the definition. Headings, links, code and other macros are not changed.</p>
+<p>The page is saved as a new version by you, so you need permission to edit the page, and the page history keeps the version from before. Up to 200 terms can be linked in one go.</p>
+<h2 id="macros">Macros</h2>
+<p>Type <code>/glossary</code> in the editor and choose one of the two macros.</p>
+<ul>
+<li><strong>Glossary term</strong> shows one term in the text, and a click opens its definition. In its settings, choose the <strong>Term</strong>. Under <strong>Text in the page</strong>, type another form of the word if the sentence needs it, for example a plural.</li>
+<li><strong>Glossary list</strong> shows the glossary, or one category, from A to Z with the definitions. In its settings, choose a <strong>Category</strong> (leave it empty for all terms) and whether <strong>Deprecated terms</strong> are hidden or shown with a label.</li>
+</ul>
+<h2 id="the-glossary">The glossary</h2>
+<p>Open <strong>Apps</strong>, then <strong>Glossary</strong>.</p>
+<ul>
+<li>Search names, synonyms and definitions, browse from A to Z, and filter by <strong>Category</strong> and <strong>Status</strong>. Results come 50 at a time.</li>
+<li><strong>Open</strong> shows a term with its definition, synonyms, category, owner, link and, for a deprecated term, the term to use instead.</li>
+<li>Editors use <strong>Add a term</strong>, <strong>Edit</strong>, <strong>Approve</strong> and <strong>Delete</strong>.</li>
+<li>When suggestions are on, everybody else uses <strong>Suggest a term</strong>. A suggestion waits under the status <strong>Suggested, to review</strong> until an editor approves it.</li>
+</ul>
+<h3 id="the-fields-of-a-term">The fields of a term</h3>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Field</th><th scope="col">Notes</th></tr></thead><tbody><tr><td data-label="Field">Term</td><td data-label="Notes">Up to 80 characters. Names are unique across the glossary</td></tr><tr><td data-label="Field">Synonyms and abbreviations</td><td data-label="Notes">Up to 10, separated by commas. Pages are matched on the term and on each of these</td></tr><tr><td data-label="Field">Definition</td><td data-label="Notes">Up to 2,000 characters</td></tr><tr><td data-label="Field">Category</td><td data-label="Notes">Free text, for example Finance</td></tr><tr><td data-label="Field">Owner</td><td data-label="Notes">A team or role, for example Data governance. Free text, not a user account</td></tr><tr><td data-label="Field">Read more</td><td data-label="Notes">An optional link that starts with https:// or http://</td></tr><tr><td data-label="Field">Match exact upper and lower case</td><td data-label="Notes">For abbreviations such as API or IT</td></tr><tr><td data-label="Field">Status</td><td data-label="Notes">Approved, Suggested or Deprecated. A deprecated term can name the term to use instead</td></tr></tbody></table></div>
+<h2 id="settings-for-administrators">Settings for administrators</h2>
+<p>As a Confluence administrator, open <strong>Settings, Manage apps</strong>, find Lexiwright and choose <strong>Configure</strong>. This opens the settings page <strong>Lexiwright glossary</strong> with three tabs.</p>
+<h3 id="permissions">Permissions</h3>
+<ul>
+<li><strong>Who can add, change, approve and delete terms</strong>: <strong>Everyone who can use Confluence</strong>, or <strong>Only these groups (and Confluence administrators)</strong> with the <strong>Editor groups</strong> you choose.</li>
+<li><strong>Others can suggest terms</strong>: everybody who may not edit can suggest terms, and editors review them before they appear.</li>
+</ul>
+<p>Everybody who can use Confluence can read the glossary. Linking terms in a page needs Confluence&#39;s permission to edit that page.</p>
+<p>When editing is limited to groups, Confluence administrators are recognised by membership of one of the groups site-admins, confluence-admins, confluence-administrators, administrators or org-admins.</p>
+<h3 id="import">Import</h3>
+<p>Paste a CSV file (comma, semicolon or tab separated). The first line names the columns:</p>
+<pre tabindex="0"><code>term, definition, synonyms, category, status, owner, link, match_case
+</code></pre>
+<p>Only term and definition are required. Choose <strong>Add new terms and update terms with the same name</strong>, or <strong>Replace the whole glossary</strong> (administrators only). <strong>Check the file</strong> lists every problem by line, including name clashes, before anything changes. Then select <strong>Start import</strong>.</p>
+<h3 id="export">Export</h3>
+<p><strong>Create the export</strong> gives the whole glossary as CSV text in the same columns as the import. Select all, copy and save it as a .csv file. It can be imported again on this site or another one.</p>
+<h2 id="rovo-optional">Rovo (optional)</h2>
+<p>If your site uses Atlassian Rovo, the <strong>Glossary</strong> agent answers questions such as &quot;What does SLA mean here?&quot; from your glossary, names the term to use instead of a deprecated one, and says so when a term is not in the glossary. It uses the <strong>Look up a glossary term</strong> action, which reads only the glossary. Suggested terms are not used.</p>
+<h2 id="limits">Limits</h2>
+<ul>
+<li>Terms are not highlighted all over a page by themselves: Forge apps cannot change how a page is drawn. The byline list and Link glossary terms do that job.</li>
+<li>Pages only. Blog posts are not scanned or linked.</li>
+<li>A term that is bold in the text loses its bold when it is linked.</li>
+<li>Up to 3,000 terms, 2,000 characters per definition and 10 synonyms per term.</li>
+<li>The export is CSV text to copy, not a file download.</li>
+<li>Without an active licence, the glossary, the byline and the macros show no glossary content. The terms stay stored.</li>
+</ul>
+<h2 id="permissions-and-data">Permissions and data</h2>
+<p>Lexiwright keeps the glossary and its settings in Forge storage on your site and stores no account ids. It reads and changes pages as the person using it. See <a href="/karelia-labs/products/lexiwright/security/">Security</a> and the <a href="/karelia-labs/products/lexiwright/privacy/">Privacy Policy</a>.</p>
+<h2 id="need-help">Need help?</h2>
+<p>See the <a href="/karelia-labs/products/lexiwright/support/">support page</a> for how to reach us, what to include and answers to common questions.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#start-a-glossary-in-four-steps">Start a glossary in four steps</a></li><li><a href="#see-the-terms-a-page-uses">See the terms a page uses</a></li><li><a href="#link-glossary-terms-in-a-page">Link glossary terms in a page</a></li><li><a href="#macros">Macros</a></li><li><a href="#the-glossary">The glossary</a></li><li><a href="#settings-for-administrators">Settings for administrators</a></li><li><a href="#rovo-optional">Rovo (optional)</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence, Jira, Flarum and Statamic, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li><li><a href="/karelia-labs/products/gridwright/">Gridwright</a></li><li><a href="/karelia-labs/products/lexiwright/">Lexiwright</a></li><li><a href="/karelia-labs/products/brandwright/">Brandwright</a></li><li><a href="/karelia-labs/products/karelia-translate/">Karelia Translate</a></li><li><a href="/karelia-labs/products/karelia-trash/">Karelia Trash</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/">Karelia Spreadsheet</a></li><li><a href="/karelia-labs/products/karelia-conversions/">Karelia Conversions</a></li><li><a href="/karelia-labs/products/karelia-tickets/">Karelia Tickets</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="/karelia-labs/buy-by-invoice/">Buy by invoice</a></li><li><a href="https://karelialabs.gumroad.com/subscribe">Deals by email</a></li><li><a href="https://karelialabs.com/tools">All tools at karelialabs.com</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Flarum, Statamic and the other names on this site belong to their owners. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>

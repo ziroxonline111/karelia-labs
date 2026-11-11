@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brandwright documentation | Karelia Labs</title>
+<meta name="description" content="Getting started with Brandwright, how its features work and what its limits are.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0D0208" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F6F3" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://ziroxonline111.github.io/karelia-labs/products/brandwright/docs/">
+<link rel="icon" href="/karelia-labs/favicon.ico" sizes="48x48">
+<link rel="icon" href="/karelia-labs/assets/logo/icon-dark.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/karelia-labs/assets/logo/apple-touch-icon.png">
+<link rel="stylesheet" href="/karelia-labs/assets/site-8b71698148.css">
+<meta property="og:site_name" content="Karelia Labs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brandwright documentation | Karelia Labs">
+<meta property="og:description" content="Getting started with Brandwright, how its features work and what its limits are.">
+<meta property="og:url" content="https://ziroxonline111.github.io/karelia-labs/products/brandwright/docs/">
+<meta property="og:image" content="https://ziroxonline111.github.io/karelia-labs/assets/og.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="/karelia-labs/" aria-label="Karelia Labs, home"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture></a><nav class="nav" aria-label="Main"><a href="/karelia-labs/products/" aria-current="page">Products</a><a href="/karelia-labs/support/">Support</a><a href="/karelia-labs/security/">Security</a><a href="/karelia-labs/legal/">Legal</a></nav></div></header>
+<main id="main" tabindex="-1">
+<div class="pband"><div class="wrap pband-inner"><a class="pband-name" href="/karelia-labs/products/brandwright/"><img class="logo" src="/karelia-labs/assets/products/brandwright.svg" alt="" width="144" height="144"><span class="t">Brandwright</span></a><span class="pband-sub">Word template export for Confluence</span></div></div><nav class="tabs" aria-label="Brandwright"><div class="wrap"><ul><li><a href="/karelia-labs/products/brandwright/">Overview</a></li><li><a href="/karelia-labs/products/brandwright/docs/" aria-current="page">Documentation</a></li><li><a href="/karelia-labs/products/brandwright/support/">Support</a></li><li><a href="/karelia-labs/products/brandwright/security/">Security</a></li><li><a href="/karelia-labs/products/brandwright/privacy/">Privacy</a></li><li><a href="/karelia-labs/products/brandwright/eula/">EULA</a></li></ul></div></nav>
+<div class="wrap page-head"><h1>Documentation</h1><p class="lead">Getting started, features and limits of Brandwright.</p></div>
+
+<div class="wrap doc"><details class="toc toc-m"><summary>On this page</summary><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#your-first-export-in-four-steps">Your first export in four steps</a></li><li><a href="#make-your-own-template">Make your own template</a></li><li><a href="#tags">Tags</a></li><li><a href="#the-template-library">The template library</a></li><li><a href="#page-trees">Page trees</a></li><li><a href="#what-is-carried-over">What is carried over</a></li><li><a href="#about-the-pdf">About the PDF</a></li><li><a href="#files-and-attachments">Files and attachments</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></details><article class="prose"><h2 id="what-you-need">What you need</h2>
+<ul>
+<li>Confluence Cloud.</li>
+<li>Brandwright installed on your site. Installing an app needs a Confluence site administrator.</li>
+<li>Word, or any editor that saves <code>.docx</code> files, to make your own templates.</li>
+</ul>
+<p>Brandwright works with the permissions of the person who exports. The first time an app is used, Atlassian shows a consent screen. Approve it once.</p>
+<h2 id="your-first-export-in-four-steps">Your first export in four steps</h2>
+<ol>
+<li>Open a page, open the ••• menu and choose <strong>Export with Word template…</strong>.</li>
+<li>Under <strong>Template</strong>, pick a template. The three starter templates are there from the start.</li>
+<li>Under <strong>What to export</strong>, choose <strong>This page</strong> or <strong>This page and its child pages</strong>. Under <strong>Format</strong>, tick <strong>Word (.docx)</strong>, <strong>PDF</strong> or both. Tick <strong>Also attach the file to the page</strong> if the files should be kept with the page.</li>
+<li>Select <strong>Export</strong>. When the export is finished, select <strong>Download</strong> for each file.</li>
+</ol>
+<p>The export runs in the background. You can close the dialog and open <strong>Export with Word template…</strong> on the same page again to follow it. The dialog remembers your last choices in your browser.</p>
+<h2 id="make-your-own-template">Make your own template</h2>
+<ol>
+<li>In Word, design the document as you always do: logo, header and footer, cover page, styles.</li>
+<li>Where facts of the page should go, type tags such as <code>{title}</code> and <code>{lastModified}</code>. Where the content of the page should go, type <code>{@body}</code> in a paragraph of its own.</li>
+<li>Save the file as a <code>.docx</code> file.</li>
+<li>As a Confluence administrator, open <strong>Settings</strong> and choose <strong>Brandwright templates</strong> in the left menu. Under <strong>Add a template</strong>, choose the Word file, give it a <strong>Name</strong> and an optional <strong>Description</strong>, and select <strong>Upload</strong>.</li>
+</ol>
+<p>The template is checked when it is uploaded. A broken tag, such as a section that is opened and never closed, stops the upload and the reason is shown. A tag that the app does not know is accepted with a note and prints nothing.</p>
+<h2 id="tags">Tags</h2>
+<div class="table-wrap"><table class="stack"><thead><tr><th scope="col">Tag</th><th scope="col">Prints</th></tr></thead><tbody><tr><td data-label="Tag"><code>{title}</code></td><td data-label="Prints">The title of the page</td></tr><tr><td data-label="Tag"><code>{author}</code></td><td data-label="Prints">The person who created the page</td></tr><tr><td data-label="Tag"><code>{lastModified}</code></td><td data-label="Prints">The date of the last change</td></tr><tr><td data-label="Tag"><code>{space}</code></td><td data-label="Prints">The name of the space</td></tr><tr><td data-label="Tag"><code>{url}</code></td><td data-label="Prints">The address of the page</td></tr><tr><td data-label="Tag"><code>{version}</code></td><td data-label="Prints">The version number of the page</td></tr><tr><td data-label="Tag"><code>{exportDate}</code></td><td data-label="Prints">The date of the export</td></tr><tr><td data-label="Tag"><code>{@body}</code></td><td data-label="Prints">The content of the page. It must be alone in its paragraph</td></tr><tr><td data-label="Tag"><code>{#pages}</code> ... <code>{/pages}</code></td><td data-label="Prints">Repeats what is between the tags for every page of a tree</td></tr></tbody></table></div>
+<ul>
+<li>Write the tags as plain text. They are found even when Word has split them into pieces.</li>
+<li>The text tags also work in headers and footers. <code>{@body}</code> and <code>{#pages}</code> work in the body of the document.</li>
+<li>Outside <code>{#pages}</code>, <code>{@body}</code> holds the whole export: the chosen page, followed by every child page with its title as a heading of its level.</li>
+<li>Inside <code>{#pages}</code>, <code>{title}</code>, <code>{author}</code> and the other tags describe the page of that round, and <code>{@body}</code> is the content of that page. It works for paragraphs and for table rows.</li>
+<li>Headings of the page use the Heading 1 to Heading 6 styles of your template.</li>
+<li>A table of contents field in the template is filled with the headings of the export.</li>
+<li>Dates follow the language and time zone of the person who exports.</li>
+</ul>
+<h2 id="the-template-library">The template library</h2>
+<p>As a Confluence administrator, open <strong>Settings</strong> and choose <strong>Brandwright templates</strong> in the left menu.</p>
+<ul>
+<li><strong>Templates</strong> lists the starter templates and your own. Badges show the <strong>Default</strong>, the <strong>Starter</strong> templates, templates with a table of contents (<strong>Contents</strong>) and templates for page trees (<strong>Tree</strong>).</li>
+<li><strong>Tags</strong> shows which tags a template uses and where: in the body, a header or a footer.</li>
+<li><strong>Make default</strong> preselects a template in the export dialog.</li>
+<li><strong>Download</strong> gives you the Word file.</li>
+<li><strong>Copy to my templates</strong> copies a starter template into your library.</li>
+<li><strong>Delete</strong> removes one of your own templates.</li>
+</ul>
+<p>To change a template, download it, change it in Word and upload it again. Template names are unique, so give the new file another name or delete the old template first. A site can have up to 50 templates.</p>
+<p>The three starter templates are <strong>Clean document</strong> (the page with a header and page numbers), <strong>Report with cover page</strong> (a cover page, a table of contents and the content) and <strong>Handbook for a page tree</strong> (a cover page, a table of contents and one chapter for every page of a tree).</p>
+<h2 id="page-trees">Page trees</h2>
+<p>Choose <strong>This page and its child pages</strong> to export a page and everything below it, in the order of the page tree, up to 100 pages. A tree that is too large is refused with a message that says what to do.</p>
+<p>The export runs as you, so pages you may not see are not exported, and the dialog lists the pages it could not read. Each person can have up to three exports running at a time.</p>
+<h2 id="what-is-carried-over">What is carried over</h2>
+<p>Headings, paragraphs, bold, italic, underline, links, bullet and numbered lists, tables with merged cells and header rows, code blocks, info, note, warning, success and error panels, quotes, task lists, expand sections, status lozenges, dates, mentions, emoji, and PNG and JPEG pictures that are attachments of the page.</p>
+<ul>
+<li>Links are written as their text followed by the address.</li>
+<li>Macros, for example the contents macro, Jira issue lists and diagrams, are not exported. The dialog lists the macros that were left out under the notes about the content.</li>
+<li>Pictures are PNG and JPEG attachments of the page, up to 60 per document and 5 MB each. Other pictures become a one-line note.</li>
+</ul>
+<h2 id="about-the-pdf">About the PDF</h2>
+<p>The PDF is made from the finished Word file, inside Atlassian, with no outside conversion service. It is a clean rendition, not a pixel-perfect copy.</p>
+<ul>
+<li>Text boxes, shapes, footnotes and columns of a template are left out of the PDF. The Word file keeps them.</li>
+<li>The table of contents in the PDF lists the headings without page numbers. In the Word file, Word asks once whether to update the fields when the file is opened; answer Yes to get the page numbers.</li>
+<li>The font is Roboto, embedded in the PDF. Code uses Courier.</li>
+</ul>
+<h2 id="files-and-attachments">Files and attachments</h2>
+<ul>
+<li>Download the files from the dialog when the export is finished. The app keeps them for 3 days and then deletes them.</li>
+<li><strong>Also attach the file to the page</strong> attaches the files to the exported page, if you may add attachments there. A file with the same name as an existing attachment becomes a new version of it.</li>
+<li>An exported file can be up to 16 MB.</li>
+</ul>
+<h2 id="limits">Limits</h2>
+<ul>
+<li>Pages only. Blog posts are not exported.</li>
+<li>A tree is up to 100 pages.</li>
+<li>A template can be up to 10 MB. Macro-enabled files, old <code>.doc</code> files and password-protected files are refused.</li>
+<li>An export can run for about 13 minutes. Export a smaller part of a tree, or leave out the PDF, if it takes longer.</li>
+<li>Support for your own templates is limited to explaining how the tags work.</li>
+<li>Microsoft Word is a trademark of the Microsoft group of companies. Brandwright does not use Microsoft software and is not affiliated with Microsoft.</li>
+</ul>
+<h2 id="permissions-and-data">Permissions and data</h2>
+<p>Brandwright reads pages as the person who exports, and its only write is attaching files to a page when you ask for it. Templates, export records (14 days) and exported files (3 days) are kept in Forge storage on your site. See <a href="/karelia-labs/products/brandwright/security/">Security</a> and the <a href="/karelia-labs/products/brandwright/privacy/">Privacy Policy</a>.</p>
+<h2 id="need-help">Need help?</h2>
+<p>See the <a href="/karelia-labs/products/brandwright/support/">support page</a> for how to reach us, what to include and answers to common questions.</p>
+</article><aside class="toc toc-d" aria-label="On this page"><p class="toc-title">On this page</p><ol><li><a href="#what-you-need">What you need</a></li><li><a href="#your-first-export-in-four-steps">Your first export in four steps</a></li><li><a href="#make-your-own-template">Make your own template</a></li><li><a href="#tags">Tags</a></li><li><a href="#the-template-library">The template library</a></li><li><a href="#page-trees">Page trees</a></li><li><a href="#what-is-carried-over">What is carried over</a></li><li><a href="#about-the-pdf">About the PDF</a></li><li><a href="#files-and-attachments">Files and attachments</a></li><li><a href="#limits">Limits</a></li><li><a href="#permissions-and-data">Permissions and data</a></li><li><a href="#need-help">Need help?</a></li></ol></aside></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-grid">
+<div class="footer-brand"><picture><source media="(prefers-color-scheme: light)" srcset="/karelia-labs/assets/logo/wordmark-light.svg"><img src="/karelia-labs/assets/logo/wordmark-dark.svg" alt="Karelia Labs" width="1414" height="260"></picture><p>Apps for Confluence, Jira, Flarum and Statamic, built to run inside the platform you already use.</p></div>
+<div><h2>Products</h2><ul><li><a href="/karelia-labs/products/treewright/">Treewright</a></li><li><a href="/karelia-labs/products/specfold/">Specfold</a></li><li><a href="/karelia-labs/products/qa-knowledge-base/">Q&amp;A Knowledge Base</a></li><li><a href="/karelia-labs/products/word-and-pdf-document-generator/">Word and PDF Document Generator</a></li><li><a href="/karelia-labs/products/gridwright/">Gridwright</a></li><li><a href="/karelia-labs/products/lexiwright/">Lexiwright</a></li><li><a href="/karelia-labs/products/brandwright/">Brandwright</a></li><li><a href="/karelia-labs/products/karelia-translate/">Karelia Translate</a></li><li><a href="/karelia-labs/products/karelia-trash/">Karelia Trash</a></li><li><a href="/karelia-labs/products/karelia-spreadsheet/">Karelia Spreadsheet</a></li><li><a href="/karelia-labs/products/karelia-conversions/">Karelia Conversions</a></li><li><a href="/karelia-labs/products/karelia-tickets/">Karelia Tickets</a></li></ul></div>
+<div><h2>Karelia Labs</h2><ul><li><a href="/karelia-labs/support/">Support</a></li><li><a href="/karelia-labs/security/">Security</a></li><li><a href="/karelia-labs/legal/">Legal</a></li><li><a href="/karelia-labs/buy-by-invoice/">Buy by invoice</a></li><li><a href="https://karelialabs.gumroad.com/subscribe">Deals by email</a></li><li><a href="https://karelialabs.com/tools">All tools at karelialabs.com</a></li><li><a href="mailto:support@karelialabs.atlassian.net">support@karelialabs.atlassian.net</a></li></ul></div>
+</div><div class="wrap footer-base"><p>&copy; 2026 Karelia Labs</p><p>Atlassian, Confluence, Jira and Forge are trademarks of Atlassian. Microsoft, Word and Excel are trademarks of Microsoft Corporation. Flarum, Statamic and the other names on this site belong to their owners. Karelia Labs is an independent vendor and is not affiliated with, endorsed by or sponsored by any of them.</p></div></footer>
+</body>
+</html>
